@@ -1,0 +1,702 @@
+# coding: utf-8
+# @email: enoche.chow@gmail.com
+r"""
+FREEDOM
+# Update: 01/08/2022
+"""
+
+
+import os
+import random
+import numpy as np
+import scipy.sparse as sp
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from common.abstract_recommender import GeneralRecommender
+from common.loss import BPRLoss, EmbLoss, L2Loss
+from utils.utils import build_sim, compute_normalized_laplacian
+
+
+class FREEDOM(GeneralRecommender):
+    def __init__(self, config, dataset):
+        super(FREEDOM, self).__init__(config, dataset)
+
+        self.embedding_dim = config['embedding_size']
+        self.feat_embed_dim = config['feat_embed_dim']
+        self.knn_k = config['knn_k']
+        self.lambda_coeff = config['lambda_coeff']
+        self.cf_model = config['cf_model']
+        self.n_layers = config['n_mm_layers']
+        self.n_ui_layers = config['n_ui_layers']
+        self.reg_weight = config['reg_weight']
+        self.build_item_graph = True
+        self.mm_image_weight = config['mm_image_weight']
+        self.dropout = config['dropout']
+        self.degree_ratio = config['degree_ratio']
+
+        self.n_nodes = self.n_users + self.n_items
+
+        # load dataset info
+        self.interaction_matrix = dataset.inter_matrix(form='coo').astype(np.float32)
+        self.norm_adj = self.get_norm_adj_mat().to(self.device)
+        self.masked_adj, self.mm_adj = None, None
+        self.edge_indices, self.edge_values = self.get_edge_info()
+        self.edge_indices, self.edge_values = self.edge_indices.to(self.device), self.edge_values.to(self.device)
+        self.edge_full_indices = torch.arange(self.edge_values.size(0)).to(self.device)
+
+        self.user_embedding = nn.Embedding(self.n_users, self.embedding_dim)
+        self.item_id_embedding = nn.Embedding(self.n_items, self.embedding_dim)
+        nn.init.xavier_uniform_(self.user_embedding.weight)
+        nn.init.xavier_uniform_(self.item_id_embedding.weight)
+
+        # Handle relative data_path: resolve from src directory
+        data_path = config['data_path']
+        if not os.path.isabs(data_path):
+            src_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            data_path = os.path.join(src_dir, data_path)
+        dataset_path = os.path.abspath(data_path + config['dataset'])
+        mm_adj_file = os.path.join(dataset_path, 'mm_adj_freedomdsp_{}_{}.pt'.format(self.knn_k, int(10*self.mm_image_weight)))
+
+        if self.v_feat is not None:
+            self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=False)
+            self.image_trs = nn.Linear(self.v_feat.shape[1], self.feat_embed_dim)
+        if self.t_feat is not None:
+            self.text_embedding = nn.Embedding.from_pretrained(self.t_feat, freeze=False)
+            self.text_trs = nn.Linear(self.t_feat.shape[1], self.feat_embed_dim)
+
+        if os.path.exists(mm_adj_file):
+            self.mm_adj = torch.load(mm_adj_file)
+        else:
+            if self.v_feat is not None:
+                indices, image_adj = self.get_knn_adj_mat(self.image_embedding.weight.detach())
+                self.mm_adj = image_adj
+            if self.t_feat is not None:
+                indices, text_adj = self.get_knn_adj_mat(self.text_embedding.weight.detach())
+                self.mm_adj = text_adj
+            if self.v_feat is not None and self.t_feat is not None:
+                self.mm_adj = self.mm_image_weight * image_adj + (1.0 - self.mm_image_weight) * text_adj
+                del text_adj
+                del image_adj
+            torch.save(self.mm_adj, mm_adj_file)
+
+        # ========== 困难负样本 Mixup 配置 ==========
+        # 是否启用困难负样本 Mixup
+        self.use_hard_neg_mixup = config['use_hard_neg_mixup'] if 'use_hard_neg_mixup' in config else False
+        # 负样本数量
+        self.num_negative = config['training_neg_sample_num'] if 'training_neg_sample_num' in config else 1
+        # Mixup 混合系数范围 [min, max]，参考 SGCL 使用 [0.0, 1.0]
+        self.mixup_alpha_range = config['mixup_alpha_range'] if 'mixup_alpha_range' in config else [0.0, 1.0]
+        # 是否使用 SVD-based Mixup (按奇异值比例混合)，False 则使用简单线性插值
+        self.use_svd_mixup = config['use_svd_mixup'] if 'use_svd_mixup' in config else True
+
+        # ========== BNS 负采样配置 ==========
+        # 是否启用 BNS (Bias-aware Negative Sampling)
+        self.use_bns = config['use_bns'] if 'use_bns' in config else False
+        # BNS 平衡参数 alpha (控制对难负样本的偏好)
+        self.bns_alpha = config['bns_alpha'] if 'bns_alpha' in config else 5.0
+        # BNS 候选集大小
+        self.bns_candidate_num = config['bns_candidate_num'] if 'bns_candidate_num' in config else 5
+
+        if self.use_bns:
+            # 基于 item 流行度计算 prior (假负样本先验概率)
+            # prior[i] = item_degree[i] / max_degree (归一化到 [0, 1])
+            item_degree = np.array((self.interaction_matrix > 0).sum(axis=0)).flatten()
+            max_degree = item_degree.max() + 1e-7
+            self.prior = torch.from_numpy(item_degree / max_degree).float().to(self.device)
+            
+            # 构建用户未交互物品集合 (用于 BNS 候选采样)
+            self._build_uninter_mat()
+
+    def get_knn_adj_mat(self, mm_embeddings):
+        context_norm = mm_embeddings.div(torch.norm(mm_embeddings, p=2, dim=-1, keepdim=True))
+        sim = torch.mm(context_norm, context_norm.transpose(1, 0))
+        _, knn_ind = torch.topk(sim, self.knn_k, dim=-1)
+        adj_size = sim.size()
+        del sim
+        # construct sparse adj
+        indices0 = torch.arange(knn_ind.shape[0]).to(self.device)
+        indices0 = torch.unsqueeze(indices0, 1)
+        indices0 = indices0.expand(-1, self.knn_k)
+        indices = torch.stack((torch.flatten(indices0), torch.flatten(knn_ind)), 0)
+        # norm
+        return indices, self.compute_normalized_laplacian(indices, adj_size)
+
+    def compute_normalized_laplacian(self, indices, adj_size):
+        adj = torch.sparse.FloatTensor(indices, torch.ones_like(indices[0]), adj_size)
+        row_sum = 1e-7 + torch.sparse.sum(adj, -1).to_dense()
+        r_inv_sqrt = torch.pow(row_sum, -0.5)
+        rows_inv_sqrt = r_inv_sqrt[indices[0]]
+        cols_inv_sqrt = r_inv_sqrt[indices[1]]
+        values = rows_inv_sqrt * cols_inv_sqrt
+        return torch.sparse.FloatTensor(indices, values, adj_size)
+
+    def get_norm_adj_mat(self):
+        A = sp.dok_matrix((self.n_users + self.n_items,
+                           self.n_users + self.n_items), dtype=np.float32)
+        inter_M = self.interaction_matrix
+        inter_M_t = self.interaction_matrix.transpose()
+        # 直接设置元素，兼容新 SciPy 版本
+        for row, col in zip(inter_M.row, inter_M.col + self.n_users):
+            A[row, col] = 1
+        for row, col in zip(inter_M_t.row + self.n_users, inter_M_t.col):
+            A[row, col] = 1
+        # norm adj matrix
+        sumArr = (A > 0).sum(axis=1)
+        # add epsilon to avoid Devide by zero Warning
+        diag = np.array(sumArr.flatten())[0] + 1e-7
+        diag = np.power(diag, -0.5)
+        D = sp.diags(diag)
+        L = D * A * D
+        # covert norm_adj matrix to tensor
+        L = sp.coo_matrix(L)
+        row = L.row
+        col = L.col
+        i = torch.LongTensor(np.array([row, col]))
+        data = torch.FloatTensor(L.data)
+
+        return torch.sparse.FloatTensor(i, data, torch.Size((self.n_nodes, self.n_nodes)))
+
+    def pre_epoch_processing(self):
+        if self.dropout <= .0:
+            self.masked_adj = self.norm_adj
+            return
+        # degree-sensitive edge pruning
+        degree_len = int(self.edge_values.size(0) * (1. - self.dropout))
+        degree_idx = torch.multinomial(self.edge_values, degree_len)
+        # random sample
+        keep_indices = self.edge_indices[:, degree_idx]
+        # norm values
+        keep_values = self._normalize_adj_m(keep_indices, torch.Size((self.n_users, self.n_items)))
+        all_values = torch.cat((keep_values, keep_values))
+        # update keep_indices to users/items+self.n_users
+        keep_indices[1] += self.n_users
+        all_indices = torch.cat((keep_indices, torch.flip(keep_indices, [0])), 1)
+        self.masked_adj = torch.sparse.FloatTensor(all_indices, all_values, self.norm_adj.shape).to(self.device)
+
+    def _normalize_adj_m(self, indices, adj_size):
+        adj = torch.sparse.FloatTensor(indices, torch.ones_like(indices[0]), adj_size)
+        row_sum = 1e-7 + torch.sparse.sum(adj, -1).to_dense()
+        col_sum = 1e-7 + torch.sparse.sum(adj.t(), -1).to_dense()
+        r_inv_sqrt = torch.pow(row_sum, -0.5)
+        rows_inv_sqrt = r_inv_sqrt[indices[0]]
+        c_inv_sqrt = torch.pow(col_sum, -0.5)
+        cols_inv_sqrt = c_inv_sqrt[indices[1]]
+        values = rows_inv_sqrt * cols_inv_sqrt
+        return values
+
+    def get_edge_info(self):
+        rows = torch.from_numpy(self.interaction_matrix.row)
+        cols = torch.from_numpy(self.interaction_matrix.col)
+        edges = torch.stack([rows, cols]).type(torch.LongTensor)
+        # edge normalized values
+        values = self._normalize_adj_m(edges, torch.Size((self.n_users, self.n_items)))
+        return edges, values
+
+    def forward(self, adj):
+        h = self.item_id_embedding.weight
+        for i in range(self.n_layers):
+            h = torch.sparse.mm(self.mm_adj, h)
+
+        ego_embeddings = torch.cat((self.user_embedding.weight, self.item_id_embedding.weight), dim=0)
+        all_embeddings = [ego_embeddings]
+        for i in range(self.n_ui_layers):
+            side_embeddings = torch.sparse.mm(adj, ego_embeddings)
+            ego_embeddings = side_embeddings
+            all_embeddings += [ego_embeddings]
+        all_embeddings = torch.stack(all_embeddings, dim=1)
+        all_embeddings = all_embeddings.mean(dim=1, keepdim=False)
+        u_g_embeddings, i_g_embeddings = torch.split(all_embeddings, [self.n_users, self.n_items], dim=0)
+        return u_g_embeddings, i_g_embeddings + h
+
+    def bpr_loss(self, users, pos_items, neg_items):
+        pos_scores = torch.sum(torch.mul(users, pos_items), dim=1)
+        neg_scores = torch.sum(torch.mul(users, neg_items), dim=1)
+
+        maxi = F.logsigmoid(pos_scores - neg_scores)
+        mf_loss = -torch.mean(maxi)
+
+        return mf_loss
+
+    def _build_uninter_mat(self):
+        """
+        构建用户未交互物品集合
+        
+        基于 interaction_matrix 构建每个用户的未交互物品列表，
+        用于 BNS 负采样时从候选中选择。
+        """
+        # 获取所有物品集合
+        all_items = set(range(self.n_items))
+        
+        # 从 interaction_matrix 获取每个用户的交互物品
+        # interaction_matrix 是 COO 格式，shape: (n_users, n_items)
+        self.uninter_mat = {}
+        
+        # 转换为 CSR 格式以便按行访问
+        inter_csr = self.interaction_matrix.tocsr()
+        
+        for u in range(self.n_users):
+            # 获取用户 u 的交互物品
+            interacted = set(inter_csr[u].indices)
+            # 未交互物品 = 全部物品 - 已交互物品
+            self.uninter_mat[u] = list(all_items - interacted)
+
+    def _compute_cdf(self, ui_scores, candidate_scores):
+        """
+        计算累积分布函数 F_n
+        
+        F_n = count(ui_scores <= candidate_scores) / n_items
+        表示候选得分在所有物品得分中的排名位置
+        
+        Args:
+            ui_scores: 用户-物品评分矩阵 (batch_size, n_items)
+            candidate_scores: 候选负样本得分 (batch_size, num_candidates)
+        
+        Returns:
+            F_n: 累积分布函数值 (batch_size, num_candidates)
+        """
+        batch_size, n_items = ui_scores.shape
+        num_candidates = candidate_scores.size(1)
+        
+        # 扩展 candidate_scores 以便比较: (batch_size, num_candidates, 1)
+        candidate_scores_exp = candidate_scores.unsqueeze(2)
+        
+        # 扩展 ui_scores: (batch_size, 1, n_items)
+        ui_scores_exp = ui_scores.unsqueeze(1)
+        
+        # 计算 F_n = count(ui_scores <= candidate_scores) / n_items
+        # 使用 <= 比较，计算有多少物品得分 <= 候选得分
+        less_or_equal = (ui_scores_exp <= candidate_scores_exp).float().sum(dim=2)
+        F_n = less_or_equal / (n_items + 1)
+        
+        return F_n
+
+    def bns_sampling(self, users, pos_items, neg_items_candidates, ui_scores):
+        """
+        基于 BNS (Bias-aware Negative Sampling) 策略从候选负样本中选择最优负样本
+        
+        BNS 核心思想：
+        1. 信息量 info = sigmoid(x_neg - x_pos): 负样本得分越接近正样本，信息量越大
+        2. 先验概率 p_fn: 物品流行度越高，越可能是假负样本
+        3. 累积分布 F_n: 候选得分在排序中的位置
+        4. 去偏因子 unbias: 校正采样偏差
+        5. 条件风险 risk: 综合考虑信息量和偏差，选择风险最小的候选
+        
+        Args:
+            users: 用户索引 (batch_size,)
+            pos_items: 正样本物品索引 (batch_size,)
+            neg_items_candidates: 候选负样本索引 (batch_size, num_candidates)
+            ui_scores: 用户-物品评分矩阵 (batch_size, n_items)
+        
+        Returns:
+            selected_negs: 选择的负样本索引 (batch_size,)
+        """
+        batch_size = users.size(0)
+        num_candidates = neg_items_candidates.size(1)
+        
+        # 获取正样本得分
+        pos_scores = ui_scores[torch.arange(batch_size, device=self.device), pos_items]  # (batch_size,)
+        
+        # 获取候选负样本得分
+        batch_indices = torch.arange(batch_size, device=self.device).unsqueeze(1).expand(-1, num_candidates)
+        candidate_scores = ui_scores[batch_indices, neg_items_candidates]  # (batch_size, num_candidates)
+        
+        # ========== 计算 BNS 相关量 ==========
+        
+        # 1. 信息量: info = sigmoid(x_neg - x_pos)
+        #    含义：负样本得分越接近正样本，info 越高，越"困难"
+        info = torch.sigmoid(candidate_scores - pos_scores.unsqueeze(1))  # (batch_size, num_candidates)
+        
+        # 2. 先验概率 p_fn: 物品流行度
+        #    含义：流行度高的物品更可能是假负样本（用户可能喜欢但未交互）
+        p_fn = self.prior[neg_items_candidates]  # (batch_size, num_candidates)
+        
+        # 3. 累积分布函数 F_n = rank(x_neg) / n_items
+        #    含义：候选得分在用户排序中的位置
+        F_n = self._compute_cdf(ui_scores, candidate_scores)  # (batch_size, num_candidates)
+        
+        # 4. 去偏因子 unbias = (1-F_n)(1-p_fn) / (1-F_n-p_fn+2*F_n*p_fn)
+        #    含义：校正采样偏差，值越高表示越可能是真负样本
+        F_n = F_n.clamp(0.001, 0.999)  # 数值稳定性
+        p_fn = p_fn.clamp(0.001, 0.999)
+        unbias = (1 - F_n) * (1 - p_fn) / (1 - F_n - p_fn + 2 * F_n * p_fn)
+        
+        # 5. 条件风险: risk = (1-unbias)*info - alpha*unbias*info
+        #    含义：
+        #    - 当 unbias 高 (真负样本): risk ≈ -alpha * info，倾向于选择高 info 的难负样本
+        #    - 当 unbias 低 (假负样本): risk ≈ info，惩罚高 info 的样本，避免选择假负样本
+        conditional_risk = (1 - unbias) * info - self.bns_alpha * unbias * info
+        
+        # 选择风险最小的候选
+        selected_indices = conditional_risk.argmin(dim=1)  # (batch_size,)
+        selected_negs = neg_items_candidates[torch.arange(batch_size, device=self.device), selected_indices]
+        
+        return selected_negs
+
+    def forward_mix(self):
+        """
+        带 Dropout 的前向传播，返回每层嵌入用于 Mixup
+        
+        与 forward 方法的区别：
+        - 每一层都应用 Dropout
+        - 返回每层的嵌入列表（而非聚合后的嵌入）
+        
+        Returns:
+            tuple: (user_embs, item_embs, mm_embs)
+                - user_embs: 用户嵌入列表，每层一个
+                - item_embs: 物品嵌入列表，每层一个
+                - mm_embs: 多模态物品嵌入列表
+        """
+        dropout = nn.Dropout(self.dropout)
+        
+        # 多模态物品图传播
+        h = self.item_id_embedding.weight
+        mm_embs = [h]
+        for i in range(self.n_layers):
+            h = torch.sparse.mm(self.mm_adj, h)
+            h = dropout(h)
+            mm_embs.append(h)
+        
+        # 用户-物品交互图传播
+        ego_embeddings = torch.cat((self.user_embedding.weight, 
+                                    self.item_id_embedding.weight), dim=0)
+        user_embs = [self.user_embedding.weight]
+        item_embs = [self.item_id_embedding.weight]
+        
+        for i in range(self.n_ui_layers):
+            ego_embeddings = torch.sparse.mm(self.masked_adj, ego_embeddings)
+            ego_embeddings = dropout(ego_embeddings)
+            user_embs.append(ego_embeddings[:self.n_users])
+            item_embs.append(ego_embeddings[self.n_users:])
+        
+        return user_embs, item_embs, mm_embs
+
+    def negative_mixup(self, users, pos_items, neg_items):
+
+        """
+
+        带有 BNS 风险评估的困难负样本 Mixup 策略
+
+            
+
+        流程:
+
+        1. 获取每层嵌入
+
+        2. 计算 ui_scores 评分矩阵
+
+        3. 如果启用 BNS: 用 BNS 策略从候选中选择最优负样本
+
+        4. 对选中的负样本进行 Mixup 混合
+
+            
+
+        Args:
+
+            users: 用户索引，形状 (batch_size,)
+
+            pos_items: 正样本物品索引，形状 (batch_size,)
+
+            neg_items: 负样本物品索引，形状 (batch_size * num_negative,)
+
+            
+
+        Returns:
+
+            tuple: (u_emb, pos_emb, neg_emb)
+
+                - u_emb: 用户嵌入，形状 (batch_size, embedding_dim)
+
+                - pos_emb: 正样本物品嵌入，形状 (batch_size, embedding_dim)
+
+                - neg_emb: 混合后的困难负样本嵌入，形状 (batch_size, embedding_dim)
+
+        """
+
+        # 获取每层的嵌入
+
+        user_embs, item_embs, mm_embs = self.forward_mix()
+
+            
+
+        # 聚合用户嵌入（平均池化）
+
+        u_emb = torch.stack(user_embs, dim=1).mean(dim=1)[users]
+
+            
+
+        # ========== BNS 负采样选择 ==========
+
+        if self.use_bns and neg_items.dim() == 1:
+
+            # neg_items 是 flatten 后的张量，需要 reshape
+
+            # 形状: (batch_size * num_negative,) -> (batch_size, num_negative)
+
+            batch_size = users.size(0)
+
+            neg_items_2d = neg_items.view(batch_size, -1)  # (batch_size, num_negative)
+
+                
+
+            # 计算完整评分矩阵
+
+            # 使用聚合后的嵌入计算 ui_scores
+
+            item_emb_agg = torch.stack(item_embs, dim=1).mean(dim=1)
+
+            ui_scores = torch.mm(u_emb, item_emb_agg.t())  # (batch_size, n_items)
+
+                
+
+            # BNS 选择最优负样本
+
+            selected_negs = self.bns_sampling(users, pos_items, neg_items_2d, ui_scores)
+
+            # selected_negs: (batch_size,)
+
+                
+
+            # 对 BNS 选中的负样本进行 Mixup
+
+            negs = []
+
+            for k in range(len(item_embs)):
+
+                item_emb = item_embs[k]
+
+                pos_emb = item_emb[pos_items]
+
+                neg_emb = item_emb[selected_negs]  # (batch_size, embedding_dim)
+
+                    
+
+                # Mixup: 根据 use_svd_mixup 选择混合方式
+
+                alpha = torch.rand(neg_emb.shape[0], 1, device=self.device, dtype=neg_emb.dtype)
+
+                alpha = self.mixup_alpha_range[0] + (self.mixup_alpha_range[1] - self.mixup_alpha_range[0]) * alpha
+                
+                if self.use_svd_mixup:
+                    # SVD-based Mixup: 按奇异值比例混合
+                    # 1. 构造配对矩阵 M = [pos; neg], 形状 (batch, 2, dim)
+                    M = torch.stack([pos_emb, neg_emb], dim=1)  # (batch, 2, dim)
+                    # 2. SVD分解: M = U @ diag(S) @ Vh
+                    U, S, Vh = torch.linalg.svd(M, full_matrices=False)
+                    # U: (batch, 2, 2), S: (batch, 2), Vh: (batch, 2, dim)
+                    # 3. 按比例混合奇异值: S_mix = [alpha * s1, (1-alpha) * s2]
+                    S_mix = torch.cat([alpha * S[:, 0:1], (1 - alpha) * S[:, 1:2]], dim=1)  # (batch, 2)
+                    # 4. 重构矩阵并取第0行: M' = U @ diag(S_mix) @ Vh
+                    mixed_neg = torch.bmm(U * S_mix.unsqueeze(-1), Vh)  # (batch, 2, dim)
+                    mixed_neg = mixed_neg[:, 0, :]  # (batch, dim) - 取第0行
+                else:
+                    # 简单线性插值
+                    mixed_neg = alpha * pos_emb + (1 - alpha) * neg_emb
+                negs.append(mixed_neg)
+
+                
+
+            # 聚合所有层的负样本嵌入
+
+            neg_emb = torch.stack(negs, dim=1).mean(dim=1)
+
+            pos_emb = torch.stack([item_embs[k][pos_items] for k in range(len(item_embs))], dim=1).mean(dim=1)
+
+                
+
+            return u_emb, pos_emb, neg_emb
+
+            
+
+        # ========== 原始 Mixup 流程 (不使用 BNS) ==========
+
+        negs = []
+
+        # 对每一层嵌入执行 Mixup 操作
+
+        for k in range(len(item_embs)):
+
+            item_emb = item_embs[k]
+
+                
+
+            # 获取正样本和负样本嵌入
+
+            neg_emb = item_emb[neg_items].view(-1, self.num_negative, self.embedding_dim)
+
+            pos_emb = item_emb[pos_items]
+
+                
+
+            # Mixup: 根据 use_svd_mixup 选择混合方式
+
+            # 生成随机混合系数
+            alpha = torch.rand(
+                neg_emb.shape[0], self.num_negative, 1, 
+                device=self.device, dtype=neg_emb.dtype
+            )
+            # 缩放到指定范围
+            alpha = self.mixup_alpha_range[0] + (self.mixup_alpha_range[1] - self.mixup_alpha_range[0]) * alpha
+            
+            # 始终先用简单线性插值计算 fallback
+            simple_mixed_neg = alpha * pos_emb.unsqueeze(1) + (1 - alpha) * neg_emb
+            
+            if self.use_svd_mixup:
+                # SVD-based Mixup: 按奇异值比例混合
+                # neg_emb 形状: (batch, num_negative, dim)
+                batch_size, num_neg, dim = neg_emb.shape
+                # 1. 构造配对矩阵 M = [pos; neg] 对每个负样本
+                pos_expanded = pos_emb.unsqueeze(1).expand(-1, num_neg, -1)  # (batch, num_negative, dim)
+                M = torch.stack([pos_expanded, neg_emb], dim=2)  # (batch, num_negative, 2, dim)
+                M_flat = M.view(batch_size * num_neg, 2, dim)  # (batch*num_neg, 2, dim)
+                
+                # 添加小噪声防止 SVD 退化
+                noise_scale = 1e-6
+                M_flat = M_flat + torch.randn_like(M_flat) * noise_scale
+                
+                # 2. 批量 SVD 分解
+                U, S, Vh = torch.linalg.svd(M_flat, full_matrices=False)
+                # U: (batch*num_neg, 2, 2), S: (batch*num_neg, 2), Vh: (batch*num_neg, 2, dim)
+                # 3. 按比例混合奇异值
+                alpha_flat = alpha.view(batch_size * num_neg, 1)  # (batch*num_neg, 1)
+                S_mix = torch.cat([alpha_flat * S[:, 0:1], (1 - alpha_flat) * S[:, 1:2]], dim=1)  # (batch*num_neg, 2)
+                # 4. 重构矩阵并取第0行
+                mixed_neg_flat = torch.bmm(U * S_mix.unsqueeze(-1), Vh)  # (batch*num_neg, 2, dim)
+                mixed_neg_flat = mixed_neg_flat[:, 0, :]  # (batch*num_neg, dim) - 取第0行
+                mixed_neg = mixed_neg_flat.view(batch_size, num_neg, dim)  # (batch, num_negative, dim)
+                
+                # 检测 NaN 并回退到简单插值
+                nan_mask = torch.isnan(mixed_neg).any(dim=-1)  # (batch, num_neg)
+                if nan_mask.any():
+                    mixed_neg = torch.where(nan_mask.unsqueeze(-1), simple_mixed_neg, mixed_neg)
+            else:
+                # 简单线性插值
+                mixed_neg = simple_mixed_neg
+
+                
+
+            # 计算用户与混合负样本的相似度（点积）
+
+            scores = (u_emb.unsqueeze(1) * mixed_neg).sum(dim=-1)
+
+                
+
+            # 选择最困难的负样本（相似度最高）
+
+            indices = scores.argmax(dim=1).detach()
+
+            negs.append(mixed_neg[torch.arange(len(users), device=self.device), indices])
+
+        # 聚合所有层的负样本嵌入（平均池化）
+
+        neg_emb = torch.stack(negs, dim=1).mean(dim=1)
+
+            
+
+        # 聚合正样本嵌入
+
+        pos_emb = torch.stack([item_embs[k][pos_items] for k in range(len(item_embs))], dim=1).mean(dim=1)
+
+            
+
+        return u_emb, pos_emb, neg_emb
+
+    def calculate_loss(self, interaction):
+        users = interaction[0]
+        pos_items = interaction[1]
+        neg_items = interaction[2]
+
+        self.build_item_graph = False
+
+        # ========== 困难负样本 Mixup 分支 ==========
+        if self.use_hard_neg_mixup and neg_items.dim() > 1:
+            # 使用 Mixup 困难负样本
+            # neg_items 形状: (batch_size, num_negative)
+            neg_items_flat = neg_items.flatten()
+            
+            u_g_embeddings, pos_i_g_embeddings, neg_i_g_embeddings = self.negative_mixup(
+                users, pos_items, neg_items_flat
+            )
+            batch_mf_loss = self.bpr_loss(u_g_embeddings, pos_i_g_embeddings, neg_i_g_embeddings)
+            
+            # 多模态损失 - 使用每个用户的第一个负样本
+            mf_v_loss, mf_t_loss = 0.0, 0.0
+            if self.t_feat is not None:
+                text_feats = self.text_trs(self.text_embedding.weight)
+                # 使用第一个负样本计算多模态损失
+                first_neg_items = neg_items[:, 0]
+                mf_t_loss = self.bpr_loss(u_g_embeddings, text_feats[pos_items], text_feats[first_neg_items])
+            if self.v_feat is not None:
+                image_feats = self.image_trs(self.image_embedding.weight)
+                first_neg_items = neg_items[:, 0]
+                mf_v_loss = self.bpr_loss(u_g_embeddings, image_feats[pos_items], image_feats[first_neg_items])
+            return batch_mf_loss + self.reg_weight * (mf_t_loss + mf_v_loss)
+        
+        # ========== 原始分支（不使用 Mixup）==========
+        ua_embeddings, ia_embeddings = self.forward(self.masked_adj)
+
+        u_g_embeddings = ua_embeddings[users]
+        pos_i_g_embeddings = ia_embeddings[pos_items]
+        # 处理可能的 2D neg_items
+        if neg_items.dim() > 1:
+            # 使用第一个负样本
+            neg_i_g_embeddings = ia_embeddings[neg_items[:, 0]]
+        else:
+            neg_i_g_embeddings = ia_embeddings[neg_items]
+
+        batch_mf_loss = self.bpr_loss(u_g_embeddings, pos_i_g_embeddings, neg_i_g_embeddings)
+        mf_v_loss, mf_t_loss = 0.0, 0.0
+        if self.t_feat is not None:
+            text_feats = self.text_trs(self.text_embedding.weight)
+            if neg_items.dim() > 1:
+                mf_t_loss = self.bpr_loss(ua_embeddings[users], text_feats[pos_items], text_feats[neg_items[:, 0]])
+            else:
+                mf_t_loss = self.bpr_loss(ua_embeddings[users], text_feats[pos_items], text_feats[neg_items])
+        if self.v_feat is not None:
+            image_feats = self.image_trs(self.image_embedding.weight)
+            if neg_items.dim() > 1:
+                mf_v_loss = self.bpr_loss(ua_embeddings[users], image_feats[pos_items], image_feats[neg_items[:, 0]])
+            else:
+                mf_v_loss = self.bpr_loss(ua_embeddings[users], image_feats[pos_items], image_feats[neg_items])
+        return batch_mf_loss + self.reg_weight * (mf_t_loss + mf_v_loss)
+
+    def full_sort_predict(self, interaction):
+        user = interaction[0]
+
+        restore_user_e, restore_item_e = self.forward(self.norm_adj)
+        u_embeddings = restore_user_e[user]
+
+        # dot with all item embedding to accelerate
+        scores = torch.matmul(u_embeddings, restore_item_e.transpose(0, 1))
+        return scores
+
+    def save_embeddings(self, save_path):
+        """
+        保存用户和物品嵌入到文件
+        
+        Args:
+            save_path: 保存路径（.pt 文件）
+        
+        Returns:
+            dict: 包含 user_embeddings 和 item_embeddings 的字典
+        """
+        self.eval()
+        with torch.no_grad():
+            user_embeddings, item_embeddings = self.forward(self.norm_adj)
+        
+        embeddings = {
+            'user_embeddings': user_embeddings.detach().cpu(),
+            'item_embeddings': item_embeddings.detach().cpu(),
+            'n_users': self.n_users,
+            'n_items': self.n_items,
+            'embedding_dim': self.embedding_dim
+        }
+        
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        torch.save(embeddings, save_path)
+        print(f"Embeddings saved to {save_path}")
+        print(f"  - User embeddings shape: {user_embeddings.shape}")
+        print(f"  - Item embeddings shape: {item_embeddings.shape}")
+        
+        return embeddings

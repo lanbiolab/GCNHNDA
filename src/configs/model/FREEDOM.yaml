@@ -1,0 +1,24 @@
+embedding_size: 256
+feat_embed_dim: 256
+weight_size: [64, 64]
+
+lambda_coeff: 0.9
+reg_weight: [1e-03]
+# reg_weight: [1]
+n_mm_layers: 1
+n_ui_layers: 2
+knn_k: 10
+
+mm_image_weight: 0.1
+dropout: [0.3]
+
+# ========== 困难负样本 Mixup 参数 ==========
+# 是否启用困难负样本 Mixup（可作为超参数搜索）
+use_hard_neg_mixup: [True]
+# Mixup 混合系数范围 [min, max]
+mixup_alpha_range: [ [0.0, 0.5]]
+# mixup_alpha_range: [ [0.0, 0.2]]
+# 是否使用 SVD-based Mixup (按奇异值比例混合)，False 则使用简单线性插值
+use_svd_mixup: [True]
+
+hyper_parameters: ["dropout", "reg_weight", "use_hard_neg_mixup", "mixup_alpha_range"]

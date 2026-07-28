@@ -1,0 +1,93 @@
+disease_id,userID
+Ovarian Neoplasms,0
+Breast Neoplasms,1
+Kidney Diseases,2
+Diabetes Mellitus,3
+Lung Neoplasms,4
+Stomach Neoplasms,5
+Lung Injury,6
+Heavy Metal Poisoning,7
+Obesity,8
+Acute Lung Injury,9
+Aortic dissection,10
+Atherosclerosis,11
+Alzheimer Disease,12
+Atrial Fibrillation,13
+"Leukemia, Lymphocytic, Chronic, B-Cell",14
+Urinary Bladder Neoplasms,15
+Cardiomegaly,16
+Epilepsy,17
+Asthma,18
+Osteoporosis,19
+"Depressive Disorder, Major",20
+Azoospermia,21
+Fetal Growth Retardation,22
+Diffuse Intrinsic Pontine Glioma,23
+Glioma,24
+"Thyroid Cancer, Papillary",25
+Myocardial Ischemia,26
+"Cardiomyopathy, Dilated",27
+"Lupus Erythematosus, Systemic",28
+Esophageal Squamous Cell Carcinoma,29
+Parkinson Disease,30
+Uterine Cervical Neoplasms,31
+Colorectal Neoplasms,32
+Colonic Neoplasms,33
+Endometriosis,34
+Endometrial Neoplasms,35
+Heart Failure,36
+Hypopharyngeal Neoplasms,37
+Fibrous Dysplasia of Bone,38
+Gallbladder Neoplasms,39
+Glioblastoma,40
+Vascular Remodeling,41
+"Cardiomyopathy, Hypertrophic",42
+Rheumatic Heart Disease,43
+Acute Inferior Myocardial Infarction,44
+"Carcinoma, Hepatocellular",45
+Squamous Cell Carcinoma of Head and Neck,46
+"Carcinoma, Pancreatic Ductal",47
+Prostatic Neoplasms,48
+"Infertility, Male",49
+Spotted Fever Group Rickettsiosis,50
+Ischemia,51
+Diabetic Nephropathies,52
+"Renal Insufficiency, Chronic",53
+Reperfusion Injury,54
+"Carcinoma, Renal Cell",55
+Non-alcoholic Fatty Liver Disease,56
+Adenocarcinoma of Lung,57
+Chronic Obstructive Airway Disease,58
+"Carcinoma, Non-Small-Cell Lung",59
+"Lymphoma, B-Cell",60
+Skin Diseases,61
+Amyotrophic Lateral Sclerosis,62
+Nasopharyngeal Carcinoma,63
+Oral Submucous Fibrosis,64
+Osteoarthritis,65
+Primary Ovarian Insufficiency,66
+Pancreatic Neoplasms,67
+"Diabetes Mellitus, Type 1",68
+Pheochromocytoma,69
+Moyamoya disease,70
+"Sleep Apnea, Obstructive",71
+"Sarcoidosis, Pulmonary",72
+"Dermatitis, Atopic",73
+Liver Neoplasms,74
+Nephrotic Syndrome,75
+Psoriasis,76
+Myocardial Infarction,77
+Diabetic Retinopathy,78
+Diabetic Foot,79
+Varicose Veins,80
+Peripheral Vascular Diseases,81
+Polypoidal Choroidal Vasculopathy,82
+Stroke,83
+Spinal Cord Injuries,84
+Diabetic Angiopathies,85
+Thyroid Neoplasms,86
+"Carcinoma, Ductal, Breast",87
+Neurodegenerative Diseases,88
+"Nephrosis, Lipoid",89
+Irritable Bowel Syndrome,90
+Intracranial Aneurysm,91

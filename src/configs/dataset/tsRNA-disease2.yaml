@@ -1,0 +1,17 @@
+# tsRNA-disease2 dataset configuration
+# tsRNA-disease association prediction
+
+# Common Features
+USER_ID_FIELD: userID
+ITEM_ID_FIELD: itemID
+TIME_FIELD: timestamp
+
+filter_out_cod_start_users: True
+
+inter_file_name: 'tsRNA-disease2.inter'
+
+# name of features
+text_feature_file: 'text_feat.npy'
+# text_feature_file: 'tsrna_sequence_embeddings_only.npy'
+# text_feature_file: 'text_feat_noisy.npy'  # 虚拟特征（随机初始化，不携带语义信息）
+field_separator: "\t"

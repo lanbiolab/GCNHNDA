@@ -1,0 +1,2233 @@
+nohup: ignoring input
+04 Mar 20:07    INFO ============================================================
+04 Mar 20:07    INFO DENOVO CROSS VALIDATION FOR FREEDOM + MLP
+04 Mar 20:07    INFO ============================================================
+04 Mar 20:07    INFO Dataset: tsRNA-disease2
+04 Mar 20:07    INFO Start fold: 1, End fold: -1
+04 Mar 20:07    INFO Denovo directory: /qqzdata/project/研究实验/FREEDOM-master/data/denovo_tsRNA-disease2
+04 Mar 20:07    INFO 
+--- Disease 1/92 (fold 1) ---
+04 Mar 20:07    INFO   True associations: 36
+04 Mar 20:07    INFO   Training samples: 3882
+04 Mar 20:07    INFO   Train: 3882, Test: 36
+04 Mar 20:07    INFO   === Stage 1: FREEDOM Training ===
+/qqzdata/project/研究实验/FREEDOM-master/src/models/freedom.py:134: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:654.)
+  return torch.sparse.FloatTensor(i, data, torch.Size((self.n_nodes, self.n_nodes)))
+04 Mar 20:08    INFO     FREEDOM Epoch 50/300, Loss: 0.0082
+04 Mar 20:08    INFO     FREEDOM Epoch 100/300, Loss: 0.0019
+04 Mar 20:08    INFO     FREEDOM Early stopping at epoch 142
+04 Mar 20:08    INFO     FREEDOM Training completed, final loss: 0.0012
+04 Mar 20:09    INFO     FREEDOM Results: AUC=0.7615, AUPR=0.0002
+04 Mar 20:09    INFO   === Stage 2: MLP Training ===
+04 Mar 20:09    INFO     MLP Epoch 20/100, Loss: 0.0889
+04 Mar 20:09    INFO     MLP Epoch 40/100, Loss: 0.0614
+04 Mar 20:09    INFO     MLP Early stopping at epoch 59
+04 Mar 20:09    INFO     MLP Training completed, final loss: 0.0395
+04 Mar 20:10    INFO     MLP Results: AUC=0.7766, AUPR=0.0003
+04 Mar 20:10    INFO   Final: FREEDOM AUC=0.7615, MLP AUC=0.7766
+04 Mar 20:10    INFO 
+--- Disease 2/92 (fold 2) ---
+04 Mar 20:10    INFO   True associations: 430
+04 Mar 20:10    INFO   Training samples: 3488
+04 Mar 20:10    INFO   Train: 3488, Test: 430
+04 Mar 20:10    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:11    INFO     FREEDOM Epoch 50/300, Loss: 0.0098
+04 Mar 20:11    INFO     FREEDOM Epoch 100/300, Loss: 0.0027
+04 Mar 20:11    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 20:12    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 20:12    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:12    INFO     FREEDOM Early stopping at epoch 278
+04 Mar 20:12    INFO     FREEDOM Training completed, final loss: 0.0010
+04 Mar 20:13    INFO     FREEDOM Results: AUC=0.7828, AUPR=0.0031
+04 Mar 20:13    INFO   === Stage 2: MLP Training ===
+04 Mar 20:13    INFO     MLP Epoch 20/100, Loss: 0.0912
+04 Mar 20:13    INFO     MLP Epoch 40/100, Loss: 0.0681
+04 Mar 20:13    INFO     MLP Epoch 60/100, Loss: 0.0578
+04 Mar 20:13    INFO     MLP Early stopping at epoch 67
+04 Mar 20:13    INFO     MLP Training completed, final loss: 0.0386
+04 Mar 20:14    INFO     MLP Results: AUC=0.7544, AUPR=0.0025
+04 Mar 20:14    INFO   Final: FREEDOM AUC=0.7828, MLP AUC=0.7544
+04 Mar 20:14    INFO 
+--- Disease 3/92 (fold 3) ---
+04 Mar 20:14    INFO   True associations: 20
+04 Mar 20:14    INFO   Training samples: 3898
+04 Mar 20:14    INFO   Train: 3898, Test: 20
+04 Mar 20:14    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:14    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+04 Mar 20:15    INFO     FREEDOM Epoch 100/300, Loss: 0.0027
+04 Mar 20:15    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 20:16    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 20:16    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:16    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 20:16    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 20:17    INFO     FREEDOM Results: AUC=0.8039, AUPR=0.0002
+04 Mar 20:17    INFO   === Stage 2: MLP Training ===
+04 Mar 20:17    INFO     MLP Epoch 20/100, Loss: 0.0825
+04 Mar 20:17    INFO     MLP Epoch 40/100, Loss: 0.0465
+04 Mar 20:17    INFO     MLP Epoch 60/100, Loss: 0.0431
+04 Mar 20:17    INFO     MLP Early stopping at epoch 61
+04 Mar 20:17    INFO     MLP Training completed, final loss: 0.0583
+04 Mar 20:18    INFO     MLP Results: AUC=0.8116, AUPR=0.0002
+04 Mar 20:18    INFO   Final: FREEDOM AUC=0.8039, MLP AUC=0.8116
+04 Mar 20:18    INFO 
+--- Disease 4/92 (fold 4) ---
+04 Mar 20:18    INFO   True associations: 5
+04 Mar 20:18    INFO   Training samples: 3913
+04 Mar 20:18    INFO   Train: 3913, Test: 5
+04 Mar 20:18    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:19    INFO     FREEDOM Epoch 50/300, Loss: 0.0100
+04 Mar 20:19    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+04 Mar 20:19    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+04 Mar 20:20    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 20:20    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 20:20    INFO     FREEDOM Early stopping at epoch 279
+04 Mar 20:20    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 20:21    INFO     FREEDOM Results: AUC=0.7992, AUPR=0.0000
+04 Mar 20:21    INFO   === Stage 2: MLP Training ===
+04 Mar 20:21    INFO     MLP Epoch 20/100, Loss: 0.0643
+04 Mar 20:22    INFO     MLP Epoch 40/100, Loss: 0.0612
+04 Mar 20:22    INFO     MLP Epoch 60/100, Loss: 0.0341
+04 Mar 20:22    INFO     MLP Epoch 80/100, Loss: 0.0251
+04 Mar 20:22    INFO     MLP Epoch 100/100, Loss: 0.0254
+04 Mar 20:22    INFO     MLP Training completed, final loss: 0.0254
+04 Mar 20:23    INFO     MLP Results: AUC=0.8404, AUPR=0.0001
+04 Mar 20:23    INFO   Final: FREEDOM AUC=0.7992, MLP AUC=0.8404
+04 Mar 20:23    INFO 
+--- Disease 5/92 (fold 5) ---
+04 Mar 20:23    INFO   True associations: 27
+04 Mar 20:23    INFO   Training samples: 3891
+04 Mar 20:23    INFO   Train: 3891, Test: 27
+04 Mar 20:23    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:23    INFO     FREEDOM Epoch 50/300, Loss: 0.0083
+04 Mar 20:23    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+04 Mar 20:24    INFO     FREEDOM Epoch 150/300, Loss: 0.0017
+04 Mar 20:24    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 20:24    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:25    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 20:25    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 20:26    INFO     FREEDOM Results: AUC=0.7815, AUPR=0.0002
+04 Mar 20:26    INFO   === Stage 2: MLP Training ===
+04 Mar 20:26    INFO     MLP Epoch 20/100, Loss: 0.0848
+04 Mar 20:26    INFO     MLP Epoch 40/100, Loss: 0.0551
+04 Mar 20:26    INFO     MLP Epoch 60/100, Loss: 0.0586
+04 Mar 20:26    INFO     MLP Early stopping at epoch 60
+04 Mar 20:26    INFO     MLP Training completed, final loss: 0.0586
+04 Mar 20:27    INFO     MLP Results: AUC=0.7056, AUPR=0.0001
+04 Mar 20:27    INFO   Final: FREEDOM AUC=0.7815, MLP AUC=0.7056
+04 Mar 20:27    INFO 
+--- Disease 6/92 (fold 6) ---
+04 Mar 20:27    INFO   True associations: 55
+04 Mar 20:27    INFO   Training samples: 3863
+04 Mar 20:27    INFO   Train: 3863, Test: 55
+04 Mar 20:27    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:27    INFO     FREEDOM Epoch 50/300, Loss: 0.0104
+04 Mar 20:27    INFO     FREEDOM Epoch 100/300, Loss: 0.0027
+04 Mar 20:28    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 20:28    INFO     FREEDOM Epoch 200/300, Loss: 0.0007
+04 Mar 20:29    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:29    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+04 Mar 20:29    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 20:30    INFO     FREEDOM Results: AUC=0.7980, AUPR=0.0004
+04 Mar 20:30    INFO   === Stage 2: MLP Training ===
+04 Mar 20:30    INFO     MLP Epoch 20/100, Loss: 0.0811
+04 Mar 20:30    INFO     MLP Epoch 40/100, Loss: 0.0539
+04 Mar 20:30    INFO     MLP Epoch 60/100, Loss: 0.0389
+04 Mar 20:30    INFO     MLP Early stopping at epoch 69
+04 Mar 20:30    INFO     MLP Training completed, final loss: 0.0373
+04 Mar 20:31    INFO     MLP Results: AUC=0.6808, AUPR=0.0003
+04 Mar 20:31    INFO   Final: FREEDOM AUC=0.7980, MLP AUC=0.6808
+04 Mar 20:31    INFO 
+--- Disease 7/92 (fold 7) ---
+04 Mar 20:31    INFO   True associations: 3
+04 Mar 20:31    INFO   Training samples: 3915
+04 Mar 20:31    INFO   Train: 3915, Test: 3
+04 Mar 20:31    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:31    INFO     FREEDOM Epoch 50/300, Loss: 0.0099
+04 Mar 20:32    INFO     FREEDOM Epoch 100/300, Loss: 0.0037
+04 Mar 20:32    INFO     FREEDOM Epoch 150/300, Loss: 0.0014
+04 Mar 20:32    INFO     FREEDOM Epoch 200/300, Loss: 0.0015
+04 Mar 20:33    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:33    INFO     FREEDOM Early stopping at epoch 257
+04 Mar 20:33    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 20:34    INFO     FREEDOM Results: AUC=0.7818, AUPR=0.0000
+04 Mar 20:34    INFO   === Stage 2: MLP Training ===
+04 Mar 20:34    INFO     MLP Epoch 20/100, Loss: 0.0698
+04 Mar 20:34    INFO     MLP Epoch 40/100, Loss: 0.0538
+04 Mar 20:34    INFO     MLP Epoch 60/100, Loss: 0.0461
+04 Mar 20:34    INFO     MLP Early stopping at epoch 67
+04 Mar 20:34    INFO     MLP Training completed, final loss: 0.0446
+04 Mar 20:35    INFO     MLP Results: AUC=0.8439, AUPR=0.0000
+04 Mar 20:35    INFO   Final: FREEDOM AUC=0.7818, MLP AUC=0.8439
+04 Mar 20:35    INFO 
+--- Disease 8/92 (fold 8) ---
+04 Mar 20:35    INFO   True associations: 1
+04 Mar 20:35    INFO   Training samples: 3917
+04 Mar 20:35    INFO   Train: 3917, Test: 1
+04 Mar 20:35    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:35    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+04 Mar 20:35    INFO     FREEDOM Epoch 100/300, Loss: 0.0048
+04 Mar 20:36    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 20:36    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 20:36    INFO     FREEDOM Early stopping at epoch 233
+04 Mar 20:36    INFO     FREEDOM Training completed, final loss: 0.0004
+04 Mar 20:37    INFO     FREEDOM Results: AUC=0.7935, AUPR=0.0000
+04 Mar 20:37    INFO   === Stage 2: MLP Training ===
+04 Mar 20:37    INFO     MLP Epoch 20/100, Loss: 0.0781
+04 Mar 20:37    INFO     MLP Epoch 40/100, Loss: 0.0733
+04 Mar 20:37    INFO     MLP Early stopping at epoch 58
+04 Mar 20:37    INFO     MLP Training completed, final loss: 0.0479
+04 Mar 20:38    INFO     MLP Results: AUC=0.7474, AUPR=0.0000
+04 Mar 20:38    INFO   Final: FREEDOM AUC=0.7935, MLP AUC=0.7474
+04 Mar 20:38    INFO 
+--- Disease 9/92 (fold 9) ---
+04 Mar 20:38    INFO   True associations: 11
+04 Mar 20:38    INFO   Training samples: 3907
+04 Mar 20:38    INFO   Train: 3907, Test: 11
+04 Mar 20:38    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:39    INFO     FREEDOM Epoch 50/300, Loss: 0.0102
+04 Mar 20:39    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 20:39    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 20:40    INFO     FREEDOM Early stopping at epoch 195
+04 Mar 20:40    INFO     FREEDOM Training completed, final loss: 0.0010
+04 Mar 20:41    INFO     FREEDOM Results: AUC=0.8087, AUPR=0.0001
+04 Mar 20:41    INFO   === Stage 2: MLP Training ===
+04 Mar 20:41    INFO     MLP Epoch 20/100, Loss: 0.0719
+04 Mar 20:41    INFO     MLP Epoch 40/100, Loss: 0.0526
+04 Mar 20:41    INFO     MLP Early stopping at epoch 53
+04 Mar 20:41    INFO     MLP Training completed, final loss: 0.0514
+04 Mar 20:42    INFO     MLP Results: AUC=0.7935, AUPR=0.0001
+04 Mar 20:42    INFO   Final: FREEDOM AUC=0.8087, MLP AUC=0.7935
+04 Mar 20:42    INFO 
+--- Disease 10/92 (fold 10) ---
+04 Mar 20:42    INFO   True associations: 29
+04 Mar 20:42    INFO   Training samples: 3889
+04 Mar 20:42    INFO   Train: 3889, Test: 29
+04 Mar 20:42    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:42    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 20:43    INFO     FREEDOM Epoch 100/300, Loss: 0.0032
+04 Mar 20:43    INFO     FREEDOM Epoch 150/300, Loss: 0.0021
+04 Mar 20:43    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 20:43    INFO     FREEDOM Early stopping at epoch 215
+04 Mar 20:43    INFO     FREEDOM Training completed, final loss: 0.0004
+04 Mar 20:44    INFO     FREEDOM Results: AUC=0.7828, AUPR=0.0002
+04 Mar 20:44    INFO   === Stage 2: MLP Training ===
+04 Mar 20:44    INFO     MLP Epoch 20/100, Loss: 0.0771
+04 Mar 20:44    INFO     MLP Epoch 40/100, Loss: 0.0502
+04 Mar 20:44    INFO     MLP Epoch 60/100, Loss: 0.0442
+04 Mar 20:44    INFO     MLP Early stopping at epoch 60
+04 Mar 20:44    INFO     MLP Training completed, final loss: 0.0442
+04 Mar 20:45    INFO     MLP Results: AUC=0.7765, AUPR=0.0002
+04 Mar 20:45    INFO   Final: FREEDOM AUC=0.7828, MLP AUC=0.7765
+04 Mar 20:45    INFO 
+--- Disease 11/92 (fold 11) ---
+04 Mar 20:45    INFO   True associations: 3
+04 Mar 20:45    INFO   Training samples: 3915
+04 Mar 20:45    INFO   Train: 3915, Test: 3
+04 Mar 20:45    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:46    INFO     FREEDOM Epoch 50/300, Loss: 0.0089
+04 Mar 20:46    INFO     FREEDOM Epoch 100/300, Loss: 0.0027
+04 Mar 20:46    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+04 Mar 20:47    INFO     FREEDOM Epoch 200/300, Loss: 0.0009
+04 Mar 20:47    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+04 Mar 20:48    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 20:48    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 20:49    INFO     FREEDOM Results: AUC=0.7997, AUPR=0.0000
+04 Mar 20:49    INFO   === Stage 2: MLP Training ===
+04 Mar 20:49    INFO     MLP Epoch 20/100, Loss: 0.0917
+04 Mar 20:49    INFO     MLP Epoch 40/100, Loss: 0.0536
+04 Mar 20:49    INFO     MLP Epoch 60/100, Loss: 0.0391
+04 Mar 20:49    INFO     MLP Epoch 80/100, Loss: 0.0304
+04 Mar 20:49    INFO     MLP Epoch 100/100, Loss: 0.0309
+04 Mar 20:49    INFO     MLP Training completed, final loss: 0.0309
+04 Mar 20:50    INFO     MLP Results: AUC=0.8289, AUPR=0.0000
+04 Mar 20:50    INFO   Final: FREEDOM AUC=0.7997, MLP AUC=0.8289
+04 Mar 20:50    INFO 
+--- Disease 12/92 (fold 12) ---
+04 Mar 20:50    INFO   True associations: 204
+04 Mar 20:50    INFO   Training samples: 3714
+04 Mar 20:50    INFO   Train: 3714, Test: 204
+04 Mar 20:50    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:50    INFO     FREEDOM Epoch 50/300, Loss: 0.0089
+04 Mar 20:50    INFO     FREEDOM Epoch 100/300, Loss: 0.0037
+04 Mar 20:51    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 20:51    INFO     FREEDOM Epoch 200/300, Loss: 0.0009
+04 Mar 20:51    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 20:52    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 20:52    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 20:53    INFO     FREEDOM Results: AUC=0.7954, AUPR=0.0016
+04 Mar 20:53    INFO   === Stage 2: MLP Training ===
+04 Mar 20:53    INFO     MLP Epoch 20/100, Loss: 0.0827
+04 Mar 20:53    INFO     MLP Epoch 40/100, Loss: 0.0633
+04 Mar 20:53    INFO     MLP Epoch 60/100, Loss: 0.0461
+04 Mar 20:53    INFO     MLP Epoch 80/100, Loss: 0.0479
+04 Mar 20:53    INFO     MLP Early stopping at epoch 93
+04 Mar 20:53    INFO     MLP Training completed, final loss: 0.0419
+04 Mar 20:54    INFO     MLP Results: AUC=0.7951, AUPR=0.0014
+04 Mar 20:54    INFO   Final: FREEDOM AUC=0.7954, MLP AUC=0.7951
+04 Mar 20:54    INFO 
+--- Disease 13/92 (fold 13) ---
+04 Mar 20:54    INFO   True associations: 17
+04 Mar 20:54    INFO   Training samples: 3901
+04 Mar 20:54    INFO   Train: 3901, Test: 17
+04 Mar 20:54    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:54    INFO     FREEDOM Epoch 50/300, Loss: 0.0097
+04 Mar 20:55    INFO     FREEDOM Epoch 100/300, Loss: 0.0033
+04 Mar 20:55    INFO     FREEDOM Epoch 150/300, Loss: 0.0023
+04 Mar 20:56    INFO     FREEDOM Epoch 200/300, Loss: 0.0007
+04 Mar 20:56    INFO     FREEDOM Epoch 250/300, Loss: 0.0006
+04 Mar 20:56    INFO     FREEDOM Early stopping at epoch 278
+04 Mar 20:56    INFO     FREEDOM Training completed, final loss: 0.0004
+04 Mar 20:57    INFO     FREEDOM Results: AUC=0.7834, AUPR=0.0001
+04 Mar 20:57    INFO   === Stage 2: MLP Training ===
+04 Mar 20:57    INFO     MLP Epoch 20/100, Loss: 0.0786
+04 Mar 20:57    INFO     MLP Epoch 40/100, Loss: 0.0597
+04 Mar 20:57    INFO     MLP Epoch 60/100, Loss: 0.0479
+04 Mar 20:57    INFO     MLP Early stopping at epoch 73
+04 Mar 20:57    INFO     MLP Training completed, final loss: 0.0483
+04 Mar 20:58    INFO     MLP Results: AUC=0.8497, AUPR=0.0002
+04 Mar 20:58    INFO   Final: FREEDOM AUC=0.7834, MLP AUC=0.8497
+04 Mar 20:58    INFO 
+--- Disease 14/92 (fold 14) ---
+04 Mar 20:58    INFO   True associations: 2
+04 Mar 20:58    INFO   Training samples: 3916
+04 Mar 20:58    INFO   Train: 3916, Test: 2
+04 Mar 20:58    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 20:59    INFO     FREEDOM Epoch 50/300, Loss: 0.0112
+04 Mar 20:59    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 20:59    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+04 Mar 21:00    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 21:00    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 21:00    INFO     FREEDOM Early stopping at epoch 282
+04 Mar 21:00    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:01    INFO     FREEDOM Results: AUC=0.7805, AUPR=0.0000
+04 Mar 21:01    INFO   === Stage 2: MLP Training ===
+04 Mar 21:01    INFO     MLP Epoch 20/100, Loss: 0.0773
+04 Mar 21:01    INFO     MLP Epoch 40/100, Loss: 0.0598
+04 Mar 21:01    INFO     MLP Epoch 60/100, Loss: 0.0407
+04 Mar 21:01    INFO     MLP Early stopping at epoch 66
+04 Mar 21:01    INFO     MLP Training completed, final loss: 0.0435
+04 Mar 21:02    INFO     MLP Results: AUC=0.7521, AUPR=0.0000
+04 Mar 21:02    INFO   Final: FREEDOM AUC=0.7805, MLP AUC=0.7521
+04 Mar 21:02    INFO 
+--- Disease 15/92 (fold 15) ---
+04 Mar 21:02    INFO   True associations: 1666
+04 Mar 21:02    INFO   Training samples: 2252
+04 Mar 21:02    INFO   Train: 2252, Test: 1666
+04 Mar 21:02    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:02    INFO     FREEDOM Epoch 50/300, Loss: 0.0234
+04 Mar 21:03    INFO     FREEDOM Epoch 100/300, Loss: 0.0077
+04 Mar 21:03    INFO     FREEDOM Epoch 150/300, Loss: 0.0039
+04 Mar 21:03    INFO     FREEDOM Epoch 200/300, Loss: 0.0032
+04 Mar 21:03    INFO     FREEDOM Epoch 250/300, Loss: 0.0011
+04 Mar 21:03    INFO     FREEDOM Early stopping at epoch 267
+04 Mar 21:03    INFO     FREEDOM Training completed, final loss: 0.0011
+04 Mar 21:04    INFO     FREEDOM Results: AUC=0.7176, AUPR=0.0089
+04 Mar 21:04    INFO   === Stage 2: MLP Training ===
+04 Mar 21:04    INFO     MLP Epoch 20/100, Loss: 0.1440
+04 Mar 21:04    INFO     MLP Epoch 40/100, Loss: 0.0991
+04 Mar 21:04    INFO     MLP Epoch 60/100, Loss: 0.0790
+04 Mar 21:04    INFO     MLP Epoch 80/100, Loss: 0.0415
+04 Mar 21:04    INFO     MLP Epoch 100/100, Loss: 0.0306
+04 Mar 21:04    INFO     MLP Training completed, final loss: 0.0306
+04 Mar 21:05    INFO     MLP Results: AUC=0.8210, AUPR=0.0141
+04 Mar 21:05    INFO   Final: FREEDOM AUC=0.7176, MLP AUC=0.8210
+04 Mar 21:05    INFO 
+--- Disease 16/92 (fold 16) ---
+04 Mar 21:05    INFO   True associations: 6
+04 Mar 21:05    INFO   Training samples: 3912
+04 Mar 21:05    INFO   Train: 3912, Test: 6
+04 Mar 21:05    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:06    INFO     FREEDOM Epoch 50/300, Loss: 0.0102
+04 Mar 21:06    INFO     FREEDOM Epoch 100/300, Loss: 0.0019
+04 Mar 21:06    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 21:07    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 21:07    INFO     FREEDOM Early stopping at epoch 203
+04 Mar 21:07    INFO     FREEDOM Training completed, final loss: 0.0005
+04 Mar 21:08    INFO     FREEDOM Results: AUC=0.7944, AUPR=0.0001
+04 Mar 21:08    INFO   === Stage 2: MLP Training ===
+04 Mar 21:08    INFO     MLP Epoch 20/100, Loss: 0.0758
+04 Mar 21:08    INFO     MLP Early stopping at epoch 31
+04 Mar 21:08    INFO     MLP Training completed, final loss: 0.0773
+04 Mar 21:09    INFO     MLP Results: AUC=0.8139, AUPR=0.0001
+04 Mar 21:09    INFO   Final: FREEDOM AUC=0.7944, MLP AUC=0.8139
+04 Mar 21:09    INFO 
+--- Disease 17/92 (fold 17) ---
+04 Mar 21:09    INFO   True associations: 8
+04 Mar 21:09    INFO   Training samples: 3910
+04 Mar 21:09    INFO   Train: 3910, Test: 8
+04 Mar 21:09    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:09    INFO     FREEDOM Epoch 50/300, Loss: 0.0113
+04 Mar 21:09    INFO     FREEDOM Epoch 100/300, Loss: 0.0032
+04 Mar 21:10    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 21:10    INFO     FREEDOM Epoch 200/300, Loss: 0.0010
+04 Mar 21:11    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 21:11    INFO     FREEDOM Early stopping at epoch 286
+04 Mar 21:11    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 21:12    INFO     FREEDOM Results: AUC=0.7951, AUPR=0.0001
+04 Mar 21:12    INFO   === Stage 2: MLP Training ===
+04 Mar 21:12    INFO     MLP Epoch 20/100, Loss: 0.0768
+04 Mar 21:12    INFO     MLP Epoch 40/100, Loss: 0.0596
+04 Mar 21:12    INFO     MLP Early stopping at epoch 43
+04 Mar 21:12    INFO     MLP Training completed, final loss: 0.0683
+04 Mar 21:13    INFO     MLP Results: AUC=0.6006, AUPR=0.0000
+04 Mar 21:13    INFO   Final: FREEDOM AUC=0.7951, MLP AUC=0.6006
+04 Mar 21:13    INFO 
+--- Disease 18/92 (fold 18) ---
+04 Mar 21:13    INFO   True associations: 6
+04 Mar 21:13    INFO   Training samples: 3912
+04 Mar 21:13    INFO   Train: 3912, Test: 6
+04 Mar 21:13    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:13    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 21:14    INFO     FREEDOM Epoch 100/300, Loss: 0.0031
+04 Mar 21:14    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+04 Mar 21:15    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 21:15    INFO     FREEDOM Early stopping at epoch 247
+04 Mar 21:15    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:16    INFO     FREEDOM Results: AUC=0.7713, AUPR=0.0000
+04 Mar 21:16    INFO   === Stage 2: MLP Training ===
+04 Mar 21:16    INFO     MLP Epoch 20/100, Loss: 0.0732
+04 Mar 21:16    INFO     MLP Epoch 40/100, Loss: 0.0637
+04 Mar 21:16    INFO     MLP Epoch 60/100, Loss: 0.0499
+04 Mar 21:16    INFO     MLP Early stopping at epoch 78
+04 Mar 21:16    INFO     MLP Training completed, final loss: 0.0380
+04 Mar 21:17    INFO     MLP Results: AUC=0.6926, AUPR=0.0000
+04 Mar 21:17    INFO   Final: FREEDOM AUC=0.7713, MLP AUC=0.6926
+04 Mar 21:17    INFO 
+--- Disease 19/92 (fold 19) ---
+04 Mar 21:17    INFO   True associations: 2
+04 Mar 21:17    INFO   Training samples: 3916
+04 Mar 21:17    INFO   Train: 3916, Test: 2
+04 Mar 21:17    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:17    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+04 Mar 21:18    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+04 Mar 21:18    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 21:18    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 21:19    INFO     FREEDOM Epoch 250/300, Loss: 0.0006
+04 Mar 21:19    INFO     FREEDOM Early stopping at epoch 287
+04 Mar 21:19    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:20    INFO     FREEDOM Results: AUC=0.7998, AUPR=0.0000
+04 Mar 21:20    INFO   === Stage 2: MLP Training ===
+04 Mar 21:20    INFO     MLP Epoch 20/100, Loss: 0.0746
+04 Mar 21:20    INFO     MLP Epoch 40/100, Loss: 0.0492
+04 Mar 21:20    INFO     MLP Epoch 60/100, Loss: 0.0430
+04 Mar 21:20    INFO     MLP Epoch 80/100, Loss: 0.0401
+04 Mar 21:20    INFO     MLP Early stopping at epoch 86
+04 Mar 21:20    INFO     MLP Training completed, final loss: 0.0324
+04 Mar 21:21    INFO     MLP Results: AUC=0.7948, AUPR=0.0000
+04 Mar 21:21    INFO   Final: FREEDOM AUC=0.7998, MLP AUC=0.7948
+04 Mar 21:21    INFO 
+--- Disease 20/92 (fold 20) ---
+04 Mar 21:21    INFO   True associations: 3
+04 Mar 21:21    INFO   Training samples: 3915
+04 Mar 21:21    INFO   Train: 3915, Test: 3
+04 Mar 21:21    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:21    INFO     FREEDOM Epoch 50/300, Loss: 0.0103
+04 Mar 21:22    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+04 Mar 21:22    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 21:23    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 21:23    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 21:23    INFO     FREEDOM Early stopping at epoch 270
+04 Mar 21:23    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:24    INFO     FREEDOM Results: AUC=0.7878, AUPR=0.0000
+04 Mar 21:24    INFO   === Stage 2: MLP Training ===
+04 Mar 21:24    INFO     MLP Epoch 20/100, Loss: 0.0860
+04 Mar 21:24    INFO     MLP Epoch 40/100, Loss: 0.0666
+04 Mar 21:24    INFO     MLP Epoch 60/100, Loss: 0.0469
+04 Mar 21:24    INFO     MLP Early stopping at epoch 68
+04 Mar 21:24    INFO     MLP Training completed, final loss: 0.0527
+04 Mar 21:25    INFO     MLP Results: AUC=0.7372, AUPR=0.0000
+04 Mar 21:25    INFO   Final: FREEDOM AUC=0.7878, MLP AUC=0.7372
+04 Mar 21:25    INFO 
+--- Disease 21/92 (fold 21) ---
+04 Mar 21:25    INFO   True associations: 2
+04 Mar 21:25    INFO   Training samples: 3916
+04 Mar 21:25    INFO   Train: 3916, Test: 2
+04 Mar 21:25    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:25    INFO     FREEDOM Epoch 50/300, Loss: 0.0100
+04 Mar 21:26    INFO     FREEDOM Epoch 100/300, Loss: 0.0027
+04 Mar 21:26    INFO     FREEDOM Epoch 150/300, Loss: 0.0016
+04 Mar 21:26    INFO     FREEDOM Early stopping at epoch 178
+04 Mar 21:26    INFO     FREEDOM Training completed, final loss: 0.0008
+04 Mar 21:27    INFO     FREEDOM Results: AUC=0.7687, AUPR=0.0000
+04 Mar 21:27    INFO   === Stage 2: MLP Training ===
+04 Mar 21:27    INFO     MLP Epoch 20/100, Loss: 0.0815
+04 Mar 21:27    INFO     MLP Epoch 40/100, Loss: 0.0656
+04 Mar 21:27    INFO     MLP Epoch 60/100, Loss: 0.0505
+04 Mar 21:27    INFO     MLP Epoch 80/100, Loss: 0.0297
+04 Mar 21:27    INFO     MLP Epoch 100/100, Loss: 0.0336
+04 Mar 21:27    INFO     MLP Training completed, final loss: 0.0336
+04 Mar 21:28    INFO     MLP Results: AUC=0.9424, AUPR=0.0001
+04 Mar 21:28    INFO   Final: FREEDOM AUC=0.7687, MLP AUC=0.9424
+04 Mar 21:28    INFO 
+--- Disease 22/92 (fold 22) ---
+04 Mar 21:28    INFO   True associations: 1
+04 Mar 21:28    INFO   Training samples: 3917
+04 Mar 21:28    INFO   Train: 3917, Test: 1
+04 Mar 21:28    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:29    INFO     FREEDOM Epoch 50/300, Loss: 0.0094
+04 Mar 21:29    INFO     FREEDOM Epoch 100/300, Loss: 0.0019
+04 Mar 21:30    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 21:30    INFO     FREEDOM Epoch 200/300, Loss: 0.0009
+04 Mar 21:30    INFO     FREEDOM Epoch 250/300, Loss: 0.0006
+04 Mar 21:31    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 21:31    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:32    INFO     FREEDOM Results: AUC=0.7887, AUPR=0.0000
+04 Mar 21:32    INFO   === Stage 2: MLP Training ===
+04 Mar 21:32    INFO     MLP Epoch 20/100, Loss: 0.0809
+04 Mar 21:32    INFO     MLP Epoch 40/100, Loss: 0.0634
+04 Mar 21:32    INFO     MLP Epoch 60/100, Loss: 0.0560
+04 Mar 21:32    INFO     MLP Early stopping at epoch 77
+04 Mar 21:32    INFO     MLP Training completed, final loss: 0.0483
+04 Mar 21:33    INFO     MLP Results: AUC=0.6371, AUPR=0.0000
+04 Mar 21:33    INFO   Final: FREEDOM AUC=0.7887, MLP AUC=0.6371
+04 Mar 21:33    INFO 
+--- Disease 23/92 (fold 23) ---
+04 Mar 21:33    INFO   True associations: 2
+04 Mar 21:33    INFO   Training samples: 3916
+04 Mar 21:33    INFO   Train: 3916, Test: 2
+04 Mar 21:33    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:33    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 21:33    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 21:34    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 21:34    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 21:34    INFO     FREEDOM Early stopping at epoch 245
+04 Mar 21:34    INFO     FREEDOM Training completed, final loss: 0.0013
+04 Mar 21:35    INFO     FREEDOM Results: AUC=0.7827, AUPR=0.0000
+04 Mar 21:35    INFO   === Stage 2: MLP Training ===
+04 Mar 21:35    INFO     MLP Epoch 20/100, Loss: 0.0725
+04 Mar 21:35    INFO     MLP Early stopping at epoch 36
+04 Mar 21:35    INFO     MLP Training completed, final loss: 0.0632
+04 Mar 21:36    INFO     MLP Results: AUC=0.8350, AUPR=0.0000
+04 Mar 21:36    INFO   Final: FREEDOM AUC=0.7827, MLP AUC=0.8350
+04 Mar 21:36    INFO 
+--- Disease 24/92 (fold 24) ---
+04 Mar 21:36    INFO   True associations: 3
+04 Mar 21:36    INFO   Training samples: 3915
+04 Mar 21:36    INFO   Train: 3915, Test: 3
+04 Mar 21:36    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:37    INFO     FREEDOM Epoch 50/300, Loss: 0.0089
+04 Mar 21:37    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+04 Mar 21:37    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 21:38    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 21:38    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 21:38    INFO     FREEDOM Early stopping at epoch 267
+04 Mar 21:38    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:39    INFO     FREEDOM Results: AUC=0.7846, AUPR=0.0000
+04 Mar 21:39    INFO   === Stage 2: MLP Training ===
+04 Mar 21:39    INFO     MLP Epoch 20/100, Loss: 0.0746
+04 Mar 21:39    INFO     MLP Epoch 40/100, Loss: 0.0665
+04 Mar 21:39    INFO     MLP Early stopping at epoch 51
+04 Mar 21:39    INFO     MLP Training completed, final loss: 0.0451
+04 Mar 21:40    INFO     MLP Results: AUC=0.7579, AUPR=0.0000
+04 Mar 21:40    INFO   Final: FREEDOM AUC=0.7846, MLP AUC=0.7579
+04 Mar 21:40    INFO 
+--- Disease 25/92 (fold 25) ---
+04 Mar 21:40    INFO   True associations: 4
+04 Mar 21:40    INFO   Training samples: 3914
+04 Mar 21:40    INFO   Train: 3914, Test: 4
+04 Mar 21:40    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:41    INFO     FREEDOM Epoch 50/300, Loss: 0.0090
+04 Mar 21:41    INFO     FREEDOM Epoch 100/300, Loss: 0.0025
+04 Mar 21:41    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 21:42    INFO     FREEDOM Epoch 200/300, Loss: 0.0009
+04 Mar 21:42    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 21:42    INFO     FREEDOM Early stopping at epoch 264
+04 Mar 21:42    INFO     FREEDOM Training completed, final loss: 0.0007
+04 Mar 21:43    INFO     FREEDOM Results: AUC=0.7890, AUPR=0.0000
+04 Mar 21:43    INFO   === Stage 2: MLP Training ===
+04 Mar 21:43    INFO     MLP Epoch 20/100, Loss: 0.0865
+04 Mar 21:43    INFO     MLP Epoch 40/100, Loss: 0.0633
+04 Mar 21:43    INFO     MLP Epoch 60/100, Loss: 0.0503
+04 Mar 21:43    INFO     MLP Early stopping at epoch 74
+04 Mar 21:43    INFO     MLP Training completed, final loss: 0.0386
+04 Mar 21:44    INFO     MLP Results: AUC=0.7686, AUPR=0.0000
+04 Mar 21:44    INFO   Final: FREEDOM AUC=0.7890, MLP AUC=0.7686
+04 Mar 21:44    INFO 
+--- Disease 26/92 (fold 26) ---
+04 Mar 21:44    INFO   True associations: 20
+04 Mar 21:44    INFO   Training samples: 3898
+04 Mar 21:44    INFO   Train: 3898, Test: 20
+04 Mar 21:44    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:45    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+04 Mar 21:45    INFO     FREEDOM Epoch 100/300, Loss: 0.0021
+04 Mar 21:45    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 21:46    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 21:46    INFO     FREEDOM Early stopping at epoch 244
+04 Mar 21:46    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 21:47    INFO     FREEDOM Results: AUC=0.7858, AUPR=0.0002
+04 Mar 21:47    INFO   === Stage 2: MLP Training ===
+04 Mar 21:47    INFO     MLP Epoch 20/100, Loss: 0.0852
+04 Mar 21:47    INFO     MLP Early stopping at epoch 34
+04 Mar 21:47    INFO     MLP Training completed, final loss: 0.0732
+04 Mar 21:48    INFO     MLP Results: AUC=0.5881, AUPR=0.0001
+04 Mar 21:48    INFO   Final: FREEDOM AUC=0.7858, MLP AUC=0.5881
+04 Mar 21:48    INFO 
+--- Disease 27/92 (fold 27) ---
+04 Mar 21:48    INFO   True associations: 2
+04 Mar 21:48    INFO   Training samples: 3916
+04 Mar 21:48    INFO   Train: 3916, Test: 2
+04 Mar 21:48    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:48    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+04 Mar 21:49    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 21:49    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+04 Mar 21:49    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 21:50    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 21:50    INFO     FREEDOM Early stopping at epoch 253
+04 Mar 21:50    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 21:51    INFO     FREEDOM Results: AUC=0.7921, AUPR=0.0000
+04 Mar 21:51    INFO   === Stage 2: MLP Training ===
+04 Mar 21:51    INFO     MLP Epoch 20/100, Loss: 0.0793
+04 Mar 21:51    INFO     MLP Epoch 40/100, Loss: 0.0596
+04 Mar 21:51    INFO     MLP Epoch 60/100, Loss: 0.0363
+04 Mar 21:51    INFO     MLP Epoch 80/100, Loss: 0.0397
+04 Mar 21:51    INFO     MLP Epoch 100/100, Loss: 0.0418
+04 Mar 21:51    INFO     MLP Early stopping at epoch 100
+04 Mar 21:51    INFO     MLP Training completed, final loss: 0.0418
+04 Mar 21:52    INFO     MLP Results: AUC=0.7981, AUPR=0.0000
+04 Mar 21:52    INFO   Final: FREEDOM AUC=0.7921, MLP AUC=0.7981
+04 Mar 21:52    INFO 
+--- Disease 28/92 (fold 28) ---
+04 Mar 21:52    INFO   True associations: 3
+04 Mar 21:52    INFO   Training samples: 3915
+04 Mar 21:52    INFO   Train: 3915, Test: 3
+04 Mar 21:52    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:52    INFO     FREEDOM Epoch 50/300, Loss: 0.0100
+04 Mar 21:53    INFO     FREEDOM Epoch 100/300, Loss: 0.0043
+04 Mar 21:53    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 21:53    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 21:54    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 21:54    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 21:54    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 21:55    INFO     FREEDOM Results: AUC=0.7981, AUPR=0.0000
+04 Mar 21:55    INFO   === Stage 2: MLP Training ===
+04 Mar 21:55    INFO     MLP Epoch 20/100, Loss: 0.0834
+04 Mar 21:55    INFO     MLP Epoch 40/100, Loss: 0.0546
+04 Mar 21:55    INFO     MLP Epoch 60/100, Loss: 0.0401
+04 Mar 21:55    INFO     MLP Early stopping at epoch 75
+04 Mar 21:55    INFO     MLP Training completed, final loss: 0.0355
+04 Mar 21:56    INFO     MLP Results: AUC=0.7908, AUPR=0.0000
+04 Mar 21:56    INFO   Final: FREEDOM AUC=0.7981, MLP AUC=0.7908
+04 Mar 21:56    INFO 
+--- Disease 29/92 (fold 29) ---
+04 Mar 21:56    INFO   True associations: 20
+04 Mar 21:56    INFO   Training samples: 3898
+04 Mar 21:56    INFO   Train: 3898, Test: 20
+04 Mar 21:56    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 21:56    INFO     FREEDOM Epoch 50/300, Loss: 0.0108
+04 Mar 21:57    INFO     FREEDOM Epoch 100/300, Loss: 0.0028
+04 Mar 21:57    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+04 Mar 21:57    INFO     FREEDOM Early stopping at epoch 160
+04 Mar 21:57    INFO     FREEDOM Training completed, final loss: 0.0010
+04 Mar 21:58    INFO     FREEDOM Results: AUC=0.7771, AUPR=0.0001
+04 Mar 21:58    INFO   === Stage 2: MLP Training ===
+04 Mar 21:58    INFO     MLP Epoch 20/100, Loss: 0.0719
+04 Mar 21:58    INFO     MLP Epoch 40/100, Loss: 0.0536
+04 Mar 21:58    INFO     MLP Early stopping at epoch 45
+04 Mar 21:58    INFO     MLP Training completed, final loss: 0.0663
+04 Mar 21:59    INFO     MLP Results: AUC=0.7577, AUPR=0.0001
+04 Mar 21:59    INFO   Final: FREEDOM AUC=0.7771, MLP AUC=0.7577
+04 Mar 21:59    INFO 
+--- Disease 30/92 (fold 30) ---
+04 Mar 21:59    INFO   True associations: 1
+04 Mar 21:59    INFO   Training samples: 3917
+04 Mar 21:59    INFO   Train: 3917, Test: 1
+04 Mar 21:59    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:00    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+04 Mar 22:00    INFO     FREEDOM Epoch 100/300, Loss: 0.0033
+04 Mar 22:00    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 22:01    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:01    INFO     FREEDOM Early stopping at epoch 246
+04 Mar 22:01    INFO     FREEDOM Training completed, final loss: 0.0005
+04 Mar 22:02    INFO     FREEDOM Results: AUC=0.7805, AUPR=0.0000
+04 Mar 22:02    INFO   === Stage 2: MLP Training ===
+04 Mar 22:02    INFO     MLP Epoch 20/100, Loss: 0.1428
+04 Mar 22:02    INFO     MLP Epoch 40/100, Loss: 0.0677
+04 Mar 22:02    INFO     MLP Early stopping at epoch 57
+04 Mar 22:02    INFO     MLP Training completed, final loss: 0.0511
+04 Mar 22:03    INFO     MLP Results: AUC=0.7353, AUPR=0.0000
+04 Mar 22:03    INFO   Final: FREEDOM AUC=0.7805, MLP AUC=0.7353
+04 Mar 22:03    INFO 
+--- Disease 31/92 (fold 31) ---
+04 Mar 22:03    INFO   True associations: 4
+04 Mar 22:03    INFO   Training samples: 3914
+04 Mar 22:03    INFO   Train: 3914, Test: 4
+04 Mar 22:03    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:03    INFO     FREEDOM Epoch 50/300, Loss: 0.0087
+04 Mar 22:04    INFO     FREEDOM Epoch 100/300, Loss: 0.0028
+04 Mar 22:04    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 22:05    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 22:05    INFO     FREEDOM Epoch 250/300, Loss: 0.0008
+04 Mar 22:05    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+04 Mar 22:05    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:06    INFO     FREEDOM Results: AUC=0.8212, AUPR=0.0000
+04 Mar 22:06    INFO   === Stage 2: MLP Training ===
+04 Mar 22:06    INFO     MLP Epoch 20/100, Loss: 0.0754
+04 Mar 22:06    INFO     MLP Epoch 40/100, Loss: 0.0554
+04 Mar 22:06    INFO     MLP Epoch 60/100, Loss: 0.0429
+04 Mar 22:06    INFO     MLP Early stopping at epoch 71
+04 Mar 22:06    INFO     MLP Training completed, final loss: 0.0353
+04 Mar 22:07    INFO     MLP Results: AUC=0.8854, AUPR=0.0001
+04 Mar 22:07    INFO   Final: FREEDOM AUC=0.8212, MLP AUC=0.8854
+04 Mar 22:07    INFO 
+--- Disease 32/92 (fold 32) ---
+04 Mar 22:07    INFO   True associations: 1
+04 Mar 22:07    INFO   Training samples: 3917
+04 Mar 22:07    INFO   Train: 3917, Test: 1
+04 Mar 22:07    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:08    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 22:08    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+04 Mar 22:08    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 22:09    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 22:09    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 22:09    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+04 Mar 22:09    INFO     FREEDOM Training completed, final loss: 0.0001
+04 Mar 22:10    INFO     FREEDOM Results: AUC=0.7902, AUPR=0.0000
+04 Mar 22:10    INFO   === Stage 2: MLP Training ===
+04 Mar 22:10    INFO     MLP Epoch 20/100, Loss: 0.0785
+04 Mar 22:10    INFO     MLP Early stopping at epoch 35
+04 Mar 22:10    INFO     MLP Training completed, final loss: 0.0737
+04 Mar 22:11    INFO     MLP Results: AUC=0.6968, AUPR=0.0000
+04 Mar 22:11    INFO   Final: FREEDOM AUC=0.7902, MLP AUC=0.6968
+04 Mar 22:11    INFO 
+--- Disease 33/92 (fold 33) ---
+04 Mar 22:11    INFO   True associations: 28
+04 Mar 22:11    INFO   Training samples: 3890
+04 Mar 22:11    INFO   Train: 3890, Test: 28
+04 Mar 22:11    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:12    INFO     FREEDOM Epoch 50/300, Loss: 0.0090
+04 Mar 22:12    INFO     FREEDOM Epoch 100/300, Loss: 0.0031
+04 Mar 22:12    INFO     FREEDOM Epoch 150/300, Loss: 0.0019
+04 Mar 22:13    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 22:13    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+04 Mar 22:13    INFO     FREEDOM Early stopping at epoch 263
+04 Mar 22:13    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:14    INFO     FREEDOM Results: AUC=0.7893, AUPR=0.0002
+04 Mar 22:14    INFO   === Stage 2: MLP Training ===
+04 Mar 22:14    INFO     MLP Epoch 20/100, Loss: 0.0977
+04 Mar 22:14    INFO     MLP Epoch 40/100, Loss: 0.0764
+04 Mar 22:14    INFO     MLP Early stopping at epoch 52
+04 Mar 22:14    INFO     MLP Training completed, final loss: 0.0544
+04 Mar 22:15    INFO     MLP Results: AUC=0.7444, AUPR=0.0002
+04 Mar 22:15    INFO   Final: FREEDOM AUC=0.7893, MLP AUC=0.7444
+04 Mar 22:15    INFO 
+--- Disease 34/92 (fold 34) ---
+04 Mar 22:15    INFO   True associations: 11
+04 Mar 22:15    INFO   Training samples: 3907
+04 Mar 22:15    INFO   Train: 3907, Test: 11
+04 Mar 22:15    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:16    INFO     FREEDOM Epoch 50/300, Loss: 0.0098
+04 Mar 22:16    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 22:16    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 22:17    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:17    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 22:17    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+04 Mar 22:17    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:18    INFO     FREEDOM Results: AUC=0.7822, AUPR=0.0001
+04 Mar 22:18    INFO   === Stage 2: MLP Training ===
+04 Mar 22:18    INFO     MLP Epoch 20/100, Loss: 0.0806
+04 Mar 22:18    INFO     MLP Epoch 40/100, Loss: 0.0523
+04 Mar 22:18    INFO     MLP Epoch 60/100, Loss: 0.0403
+04 Mar 22:18    INFO     MLP Early stopping at epoch 79
+04 Mar 22:18    INFO     MLP Training completed, final loss: 0.0398
+04 Mar 22:19    INFO     MLP Results: AUC=0.7444, AUPR=0.0001
+04 Mar 22:19    INFO   Final: FREEDOM AUC=0.7822, MLP AUC=0.7444
+04 Mar 22:19    INFO 
+--- Disease 35/92 (fold 35) ---
+04 Mar 22:19    INFO   True associations: 7
+04 Mar 22:19    INFO   Training samples: 3911
+04 Mar 22:19    INFO   Train: 3911, Test: 7
+04 Mar 22:19    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:20    INFO     FREEDOM Epoch 50/300, Loss: 0.0107
+04 Mar 22:20    INFO     FREEDOM Epoch 100/300, Loss: 0.0031
+04 Mar 22:21    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 22:21    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:21    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 22:22    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+04 Mar 22:22    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:23    INFO     FREEDOM Results: AUC=0.7907, AUPR=0.0001
+04 Mar 22:23    INFO   === Stage 2: MLP Training ===
+04 Mar 22:23    INFO     MLP Epoch 20/100, Loss: 0.0797
+04 Mar 22:23    INFO     MLP Epoch 40/100, Loss: 0.0537
+04 Mar 22:23    INFO     MLP Early stopping at epoch 52
+04 Mar 22:23    INFO     MLP Training completed, final loss: 0.0624
+04 Mar 22:24    INFO     MLP Results: AUC=0.7103, AUPR=0.0000
+04 Mar 22:24    INFO   Final: FREEDOM AUC=0.7907, MLP AUC=0.7103
+04 Mar 22:24    INFO 
+--- Disease 36/92 (fold 36) ---
+04 Mar 22:24    INFO   True associations: 174
+04 Mar 22:24    INFO   Training samples: 3744
+04 Mar 22:24    INFO   Train: 3744, Test: 174
+04 Mar 22:24    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:24    INFO     FREEDOM Epoch 50/300, Loss: 0.0090
+04 Mar 22:24    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 22:25    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 22:25    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 22:25    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 22:26    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+04 Mar 22:26    INFO     FREEDOM Training completed, final loss: 0.0001
+04 Mar 22:27    INFO     FREEDOM Results: AUC=0.7923, AUPR=0.0013
+04 Mar 22:27    INFO   === Stage 2: MLP Training ===
+04 Mar 22:27    INFO     MLP Epoch 20/100, Loss: 0.0760
+04 Mar 22:27    INFO     MLP Epoch 40/100, Loss: 0.0677
+04 Mar 22:27    INFO     MLP Epoch 60/100, Loss: 0.0375
+04 Mar 22:27    INFO     MLP Early stopping at epoch 73
+04 Mar 22:27    INFO     MLP Training completed, final loss: 0.0321
+04 Mar 22:28    INFO     MLP Results: AUC=0.7034, AUPR=0.0009
+04 Mar 22:28    INFO   Final: FREEDOM AUC=0.7923, MLP AUC=0.7034
+04 Mar 22:28    INFO 
+--- Disease 37/92 (fold 37) ---
+04 Mar 22:28    INFO   True associations: 13
+04 Mar 22:28    INFO   Training samples: 3905
+04 Mar 22:28    INFO   Train: 3905, Test: 13
+04 Mar 22:28    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:28    INFO     FREEDOM Epoch 50/300, Loss: 0.0108
+04 Mar 22:29    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+04 Mar 22:29    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 22:29    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 22:30    INFO     FREEDOM Early stopping at epoch 249
+04 Mar 22:30    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:31    INFO     FREEDOM Results: AUC=0.7722, AUPR=0.0001
+04 Mar 22:31    INFO   === Stage 2: MLP Training ===
+04 Mar 22:31    INFO     MLP Epoch 20/100, Loss: 0.0662
+04 Mar 22:31    INFO     MLP Epoch 40/100, Loss: 0.0582
+04 Mar 22:31    INFO     MLP Early stopping at epoch 51
+04 Mar 22:31    INFO     MLP Training completed, final loss: 0.0559
+04 Mar 22:32    INFO     MLP Results: AUC=0.8079, AUPR=0.0001
+04 Mar 22:32    INFO   Final: FREEDOM AUC=0.7722, MLP AUC=0.8079
+04 Mar 22:32    INFO 
+--- Disease 38/92 (fold 38) ---
+04 Mar 22:32    INFO   True associations: 3
+04 Mar 22:32    INFO   Training samples: 3915
+04 Mar 22:32    INFO   Train: 3915, Test: 3
+04 Mar 22:32    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:32    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+04 Mar 22:32    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+04 Mar 22:33    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 22:33    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:34    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 22:34    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 22:34    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 22:35    INFO     FREEDOM Results: AUC=0.7863, AUPR=0.0000
+04 Mar 22:35    INFO   === Stage 2: MLP Training ===
+04 Mar 22:35    INFO     MLP Epoch 20/100, Loss: 0.0753
+04 Mar 22:35    INFO     MLP Epoch 40/100, Loss: 0.0667
+04 Mar 22:35    INFO     MLP Epoch 60/100, Loss: 0.0608
+04 Mar 22:35    INFO     MLP Early stopping at epoch 65
+04 Mar 22:35    INFO     MLP Training completed, final loss: 0.0520
+04 Mar 22:36    INFO     MLP Results: AUC=0.7372, AUPR=0.0000
+04 Mar 22:36    INFO   Final: FREEDOM AUC=0.7863, MLP AUC=0.7372
+04 Mar 22:36    INFO 
+--- Disease 39/92 (fold 39) ---
+04 Mar 22:36    INFO   True associations: 3
+04 Mar 22:36    INFO   Training samples: 3915
+04 Mar 22:36    INFO   Train: 3915, Test: 3
+04 Mar 22:36    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:36    INFO     FREEDOM Epoch 50/300, Loss: 0.0099
+04 Mar 22:37    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 22:37    INFO     FREEDOM Epoch 150/300, Loss: 0.0013
+04 Mar 22:38    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 22:38    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 22:38    INFO     FREEDOM Epoch 300/300, Loss: 0.0008
+04 Mar 22:38    INFO     FREEDOM Training completed, final loss: 0.0008
+04 Mar 22:39    INFO     FREEDOM Results: AUC=0.7863, AUPR=0.0000
+04 Mar 22:39    INFO   === Stage 2: MLP Training ===
+04 Mar 22:39    INFO     MLP Epoch 20/100, Loss: 0.0994
+04 Mar 22:39    INFO     MLP Epoch 40/100, Loss: 0.0631
+04 Mar 22:39    INFO     MLP Early stopping at epoch 52
+04 Mar 22:39    INFO     MLP Training completed, final loss: 0.0519
+04 Mar 22:40    INFO     MLP Results: AUC=0.7920, AUPR=0.0000
+04 Mar 22:40    INFO   Final: FREEDOM AUC=0.7863, MLP AUC=0.7920
+04 Mar 22:40    INFO 
+--- Disease 40/92 (fold 40) ---
+04 Mar 22:40    INFO   True associations: 14
+04 Mar 22:40    INFO   Training samples: 3904
+04 Mar 22:40    INFO   Train: 3904, Test: 14
+04 Mar 22:40    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:41    INFO     FREEDOM Epoch 50/300, Loss: 0.0094
+04 Mar 22:41    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+04 Mar 22:41    INFO     FREEDOM Epoch 150/300, Loss: 0.0013
+04 Mar 22:42    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 22:42    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 22:42    INFO     FREEDOM Early stopping at epoch 261
+04 Mar 22:42    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:43    INFO     FREEDOM Results: AUC=0.7913, AUPR=0.0001
+04 Mar 22:43    INFO   === Stage 2: MLP Training ===
+04 Mar 22:43    INFO     MLP Epoch 20/100, Loss: 0.0852
+04 Mar 22:43    INFO     MLP Epoch 40/100, Loss: 0.0688
+04 Mar 22:43    INFO     MLP Epoch 60/100, Loss: 0.0474
+04 Mar 22:43    INFO     MLP Epoch 80/100, Loss: 0.0316
+04 Mar 22:43    INFO     MLP Epoch 100/100, Loss: 0.0222
+04 Mar 22:43    INFO     MLP Training completed, final loss: 0.0222
+04 Mar 22:44    INFO     MLP Results: AUC=0.8525, AUPR=0.0002
+04 Mar 22:44    INFO   Final: FREEDOM AUC=0.7913, MLP AUC=0.8525
+04 Mar 22:44    INFO 
+--- Disease 41/92 (fold 41) ---
+04 Mar 22:44    INFO   True associations: 9
+04 Mar 22:44    INFO   Training samples: 3909
+04 Mar 22:44    INFO   Train: 3909, Test: 9
+04 Mar 22:44    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:45    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 22:45    INFO     FREEDOM Epoch 100/300, Loss: 0.0031
+04 Mar 22:45    INFO     FREEDOM Epoch 150/300, Loss: 0.0018
+04 Mar 22:46    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 22:46    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 22:46    INFO     FREEDOM Early stopping at epoch 270
+04 Mar 22:46    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:47    INFO     FREEDOM Results: AUC=0.7928, AUPR=0.0001
+04 Mar 22:47    INFO   === Stage 2: MLP Training ===
+04 Mar 22:47    INFO     MLP Epoch 20/100, Loss: 0.0717
+04 Mar 22:47    INFO     MLP Early stopping at epoch 28
+04 Mar 22:47    INFO     MLP Training completed, final loss: 0.0745
+04 Mar 22:48    INFO     MLP Results: AUC=0.7565, AUPR=0.0001
+04 Mar 22:48    INFO   Final: FREEDOM AUC=0.7928, MLP AUC=0.7565
+04 Mar 22:48    INFO 
+--- Disease 42/92 (fold 42) ---
+04 Mar 22:48    INFO   True associations: 2
+04 Mar 22:48    INFO   Training samples: 3916
+04 Mar 22:48    INFO   Train: 3916, Test: 2
+04 Mar 22:48    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:49    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+04 Mar 22:49    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 22:49    INFO     FREEDOM Epoch 150/300, Loss: 0.0017
+04 Mar 22:50    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:50    INFO     FREEDOM Early stopping at epoch 209
+04 Mar 22:50    INFO     FREEDOM Training completed, final loss: 0.0004
+04 Mar 22:51    INFO     FREEDOM Results: AUC=0.7365, AUPR=0.0000
+04 Mar 22:51    INFO   === Stage 2: MLP Training ===
+04 Mar 22:51    INFO     MLP Epoch 20/100, Loss: 0.0650
+04 Mar 22:51    INFO     MLP Epoch 40/100, Loss: 0.0485
+04 Mar 22:51    INFO     MLP Epoch 60/100, Loss: 0.0436
+04 Mar 22:51    INFO     MLP Epoch 80/100, Loss: 0.0367
+04 Mar 22:51    INFO     MLP Early stopping at epoch 85
+04 Mar 22:51    INFO     MLP Training completed, final loss: 0.0293
+04 Mar 22:52    INFO     MLP Results: AUC=0.8474, AUPR=0.0000
+04 Mar 22:52    INFO   Final: FREEDOM AUC=0.7365, MLP AUC=0.8474
+04 Mar 22:52    INFO 
+--- Disease 43/92 (fold 43) ---
+04 Mar 22:52    INFO   True associations: 4
+04 Mar 22:52    INFO   Training samples: 3914
+04 Mar 22:52    INFO   Train: 3914, Test: 4
+04 Mar 22:52    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:52    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+04 Mar 22:53    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 22:53    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 22:53    INFO     FREEDOM Early stopping at epoch 194
+04 Mar 22:53    INFO     FREEDOM Training completed, final loss: 0.0007
+04 Mar 22:54    INFO     FREEDOM Results: AUC=0.7776, AUPR=0.0000
+04 Mar 22:54    INFO   === Stage 2: MLP Training ===
+04 Mar 22:54    INFO     MLP Epoch 20/100, Loss: 0.0712
+04 Mar 22:54    INFO     MLP Epoch 40/100, Loss: 0.0676
+04 Mar 22:54    INFO     MLP Epoch 60/100, Loss: 0.0418
+04 Mar 22:54    INFO     MLP Early stopping at epoch 72
+04 Mar 22:54    INFO     MLP Training completed, final loss: 0.0334
+04 Mar 22:55    INFO     MLP Results: AUC=0.8265, AUPR=0.0000
+04 Mar 22:55    INFO   Final: FREEDOM AUC=0.7776, MLP AUC=0.8265
+04 Mar 22:55    INFO 
+--- Disease 44/92 (fold 44) ---
+04 Mar 22:55    INFO   True associations: 2
+04 Mar 22:55    INFO   Training samples: 3916
+04 Mar 22:55    INFO   Train: 3916, Test: 2
+04 Mar 22:55    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 22:56    INFO     FREEDOM Epoch 50/300, Loss: 0.0089
+04 Mar 22:56    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 22:56    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+04 Mar 22:57    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 22:57    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 22:58    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+04 Mar 22:58    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 22:59    INFO     FREEDOM Results: AUC=0.7924, AUPR=0.0000
+04 Mar 22:59    INFO   === Stage 2: MLP Training ===
+04 Mar 22:59    INFO     MLP Epoch 20/100, Loss: 0.0882
+04 Mar 22:59    INFO     MLP Epoch 40/100, Loss: 0.0553
+04 Mar 22:59    INFO     MLP Epoch 60/100, Loss: 0.0435
+04 Mar 22:59    INFO     MLP Early stopping at epoch 65
+04 Mar 22:59    INFO     MLP Training completed, final loss: 0.0408
+04 Mar 23:00    INFO     MLP Results: AUC=0.6106, AUPR=0.0000
+04 Mar 23:00    INFO   Final: FREEDOM AUC=0.7924, MLP AUC=0.6106
+04 Mar 23:00    INFO 
+--- Disease 45/92 (fold 45) ---
+04 Mar 23:00    INFO   True associations: 0
+04 Mar 23:00    INFO   Training samples: 3918
+04 Mar 23:00    INFO   Disease 44: No known associations, skipping...
+04 Mar 23:00    INFO 
+--- Disease 46/92 (fold 46) ---
+04 Mar 23:00    INFO   True associations: 31
+04 Mar 23:00    INFO   Training samples: 3887
+04 Mar 23:00    INFO   Train: 3887, Test: 31
+04 Mar 23:00    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:00    INFO     FREEDOM Epoch 50/300, Loss: 0.0104
+04 Mar 23:00    INFO     FREEDOM Epoch 100/300, Loss: 0.0028
+04 Mar 23:01    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 23:01    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 23:01    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 23:02    INFO     FREEDOM Early stopping at epoch 287
+04 Mar 23:02    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 23:03    INFO     FREEDOM Results: AUC=0.8013, AUPR=0.0003
+04 Mar 23:03    INFO   === Stage 2: MLP Training ===
+04 Mar 23:03    INFO     MLP Epoch 20/100, Loss: 0.0813
+04 Mar 23:03    INFO     MLP Epoch 40/100, Loss: 0.0615
+04 Mar 23:03    INFO     MLP Epoch 60/100, Loss: 0.0441
+04 Mar 23:03    INFO     MLP Epoch 80/100, Loss: 0.0265
+04 Mar 23:03    INFO     MLP Early stopping at epoch 90
+04 Mar 23:03    INFO     MLP Training completed, final loss: 0.0340
+04 Mar 23:04    INFO     MLP Results: AUC=0.8427, AUPR=0.0003
+04 Mar 23:04    INFO   Final: FREEDOM AUC=0.8013, MLP AUC=0.8427
+04 Mar 23:04    INFO 
+--- Disease 47/92 (fold 47) ---
+04 Mar 23:04    INFO   True associations: 18
+04 Mar 23:04    INFO   Training samples: 3900
+04 Mar 23:04    INFO   Train: 3900, Test: 18
+04 Mar 23:04    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:04    INFO     FREEDOM Epoch 50/300, Loss: 0.0082
+04 Mar 23:04    INFO     FREEDOM Epoch 100/300, Loss: 0.0020
+04 Mar 23:05    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 23:05    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 23:06    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+04 Mar 23:06    INFO     FREEDOM Early stopping at epoch 287
+04 Mar 23:06    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 23:07    INFO     FREEDOM Results: AUC=0.7931, AUPR=0.0001
+04 Mar 23:07    INFO   === Stage 2: MLP Training ===
+04 Mar 23:07    INFO     MLP Epoch 20/100, Loss: 0.0777
+04 Mar 23:07    INFO     MLP Epoch 40/100, Loss: 0.0732
+04 Mar 23:07    INFO     MLP Early stopping at epoch 44
+04 Mar 23:07    INFO     MLP Training completed, final loss: 0.0536
+04 Mar 23:08    INFO     MLP Results: AUC=0.7037, AUPR=0.0001
+04 Mar 23:08    INFO   Final: FREEDOM AUC=0.7931, MLP AUC=0.7037
+04 Mar 23:08    INFO 
+--- Disease 48/92 (fold 48) ---
+04 Mar 23:08    INFO   True associations: 53
+04 Mar 23:08    INFO   Training samples: 3865
+04 Mar 23:08    INFO   Train: 3865, Test: 53
+04 Mar 23:08    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:08    INFO     FREEDOM Epoch 50/300, Loss: 0.0115
+04 Mar 23:08    INFO     FREEDOM Epoch 100/300, Loss: 0.0046
+04 Mar 23:09    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+04 Mar 23:09    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 23:09    INFO     FREEDOM Early stopping at epoch 210
+04 Mar 23:09    INFO     FREEDOM Training completed, final loss: 0.0005
+04 Mar 23:10    INFO     FREEDOM Results: AUC=0.7827, AUPR=0.0004
+04 Mar 23:10    INFO   === Stage 2: MLP Training ===
+04 Mar 23:10    INFO     MLP Epoch 20/100, Loss: 0.0844
+04 Mar 23:10    INFO     MLP Early stopping at epoch 28
+04 Mar 23:10    INFO     MLP Training completed, final loss: 0.0757
+04 Mar 23:11    INFO     MLP Results: AUC=0.6031, AUPR=0.0002
+04 Mar 23:11    INFO   Final: FREEDOM AUC=0.7827, MLP AUC=0.6031
+04 Mar 23:11    INFO 
+--- Disease 49/92 (fold 49) ---
+04 Mar 23:11    INFO   True associations: 3
+04 Mar 23:11    INFO   Training samples: 3915
+04 Mar 23:11    INFO   Train: 3915, Test: 3
+04 Mar 23:11    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:12    INFO     FREEDOM Epoch 50/300, Loss: 0.0108
+04 Mar 23:12    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+04 Mar 23:12    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 23:13    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 23:13    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 23:13    INFO     FREEDOM Early stopping at epoch 289
+04 Mar 23:13    INFO     FREEDOM Training completed, final loss: 0.0003
+Using device: cuda:0
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold1.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold2.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold3.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold4.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold5.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold6.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold7.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold8.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold9.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold10.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold11.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold12.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold13.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold14.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold15.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold16.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold17.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold18.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold19.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold20.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold21.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold22.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold23.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold24.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold25.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold26.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold27.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold28.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold29.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold30.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold31.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold32.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold33.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold34.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold35.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold36.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold37.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold38.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold39.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold40.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold41.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold42.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold43.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold44.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold46.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold47.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold48.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold49.pt
+04 Mar 23:14    INFO     FREEDOM Results: AUC=0.8120, AUPR=0.0000
+04 Mar 23:14    INFO   === Stage 2: MLP Training ===
+04 Mar 23:14    INFO     MLP Epoch 20/100, Loss: 0.0862
+04 Mar 23:14    INFO     MLP Epoch 40/100, Loss: 0.0533
+04 Mar 23:14    INFO     MLP Epoch 60/100, Loss: 0.0448
+04 Mar 23:14    INFO     MLP Epoch 80/100, Loss: 0.0330
+04 Mar 23:14    INFO     MLP Early stopping at epoch 80
+04 Mar 23:14    INFO     MLP Training completed, final loss: 0.0330
+04 Mar 23:15    INFO     MLP Results: AUC=0.8797, AUPR=0.0001
+04 Mar 23:15    INFO   Final: FREEDOM AUC=0.8120, MLP AUC=0.8797
+04 Mar 23:15    INFO 
+--- Disease 50/92 (fold 50) ---
+04 Mar 23:15    INFO   True associations: 1
+04 Mar 23:15    INFO   Training samples: 3917
+04 Mar 23:15    INFO   Train: 3917, Test: 1
+04 Mar 23:15    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:16    INFO     FREEDOM Epoch 50/300, Loss: 0.0125
+04 Mar 23:16    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 23:16    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 23:17    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 23:17    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 23:17    INFO     FREEDOM Early stopping at epoch 263
+04 Mar 23:17    INFO     FREEDOM Training completed, final loss: 0.0007
+04 Mar 23:18    INFO     FREEDOM Results: AUC=0.7956, AUPR=0.0000
+04 Mar 23:18    INFO   === Stage 2: MLP Training ===
+04 Mar 23:18    INFO     MLP Epoch 20/100, Loss: 0.0821
+04 Mar 23:18    INFO     MLP Epoch 40/100, Loss: 0.0561
+04 Mar 23:18    INFO     MLP Early stopping at epoch 56
+04 Mar 23:18    INFO     MLP Training completed, final loss: 0.0499
+04 Mar 23:19    INFO     MLP Results: AUC=0.8038, AUPR=0.0000
+04 Mar 23:19    INFO   Final: FREEDOM AUC=0.7956, MLP AUC=0.8038
+04 Mar 23:19    INFO 
+--- Disease 51/92 (fold 51) ---
+04 Mar 23:19    INFO   True associations: 2
+04 Mar 23:19    INFO   Training samples: 3916
+04 Mar 23:19    INFO   Train: 3916, Test: 2
+04 Mar 23:19    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:20    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+04 Mar 23:20    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+04 Mar 23:20    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+04 Mar 23:21    INFO     FREEDOM Epoch 200/300, Loss: 0.0007
+04 Mar 23:21    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+04 Mar 23:21    INFO     FREEDOM Early stopping at epoch 297
+04 Mar 23:21    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 23:22    INFO     FREEDOM Results: AUC=0.7963, AUPR=0.0000
+04 Mar 23:22    INFO   === Stage 2: MLP Training ===
+04 Mar 23:22    INFO     MLP Epoch 20/100, Loss: 0.0797
+04 Mar 23:23    INFO     MLP Epoch 40/100, Loss: 0.0593
+04 Mar 23:23    INFO     MLP Epoch 60/100, Loss: 0.0453
+04 Mar 23:23    INFO     MLP Epoch 80/100, Loss: 0.0399
+04 Mar 23:23    INFO     MLP Early stopping at epoch 97
+04 Mar 23:23    INFO     MLP Training completed, final loss: 0.0336
+04 Mar 23:24    INFO     MLP Results: AUC=0.8361, AUPR=0.0000
+04 Mar 23:24    INFO   Final: FREEDOM AUC=0.7963, MLP AUC=0.8361
+04 Mar 23:24    INFO 
+--- Disease 52/92 (fold 52) ---
+04 Mar 23:24    INFO   True associations: 10
+04 Mar 23:24    INFO   Training samples: 3908
+04 Mar 23:24    INFO   Train: 3908, Test: 10
+04 Mar 23:24    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:24    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+04 Mar 23:24    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 23:25    INFO     FREEDOM Epoch 150/300, Loss: 0.0014
+04 Mar 23:25    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 23:25    INFO     FREEDOM Early stopping at epoch 240
+04 Mar 23:25    INFO     FREEDOM Training completed, final loss: 0.0006
+04 Mar 23:26    INFO     FREEDOM Results: AUC=0.7903, AUPR=0.0001
+04 Mar 23:26    INFO   === Stage 2: MLP Training ===
+04 Mar 23:26    INFO     MLP Epoch 20/100, Loss: 0.0814
+04 Mar 23:26    INFO     MLP Epoch 40/100, Loss: 0.0541
+04 Mar 23:26    INFO     MLP Epoch 60/100, Loss: 0.0380
+04 Mar 23:26    INFO     MLP Early stopping at epoch 70
+04 Mar 23:26    INFO     MLP Training completed, final loss: 0.0466
+04 Mar 23:27    INFO     MLP Results: AUC=0.8414, AUPR=0.0001
+04 Mar 23:27    INFO   Final: FREEDOM AUC=0.7903, MLP AUC=0.8414
+04 Mar 23:27    INFO 
+--- Disease 53/92 (fold 53) ---
+04 Mar 23:27    INFO   True associations: 7
+04 Mar 23:27    INFO   Training samples: 3911
+04 Mar 23:27    INFO   Train: 3911, Test: 7
+04 Mar 23:27    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:28    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+04 Mar 23:28    INFO     FREEDOM Epoch 100/300, Loss: 0.0020
+04 Mar 23:28    INFO     FREEDOM Epoch 150/300, Loss: 0.0017
+04 Mar 23:29    INFO     FREEDOM Early stopping at epoch 198
+04 Mar 23:29    INFO     FREEDOM Training completed, final loss: 0.0006
+04 Mar 23:30    INFO     FREEDOM Results: AUC=0.7899, AUPR=0.0001
+04 Mar 23:30    INFO   === Stage 2: MLP Training ===
+04 Mar 23:30    INFO     MLP Epoch 20/100, Loss: 0.0833
+04 Mar 23:30    INFO     MLP Epoch 40/100, Loss: 0.0456
+04 Mar 23:30    INFO     MLP Epoch 60/100, Loss: 0.0475
+04 Mar 23:30    INFO     MLP Early stopping at epoch 74
+04 Mar 23:30    INFO     MLP Training completed, final loss: 0.0338
+04 Mar 23:31    INFO     MLP Results: AUC=0.8653, AUPR=0.0001
+04 Mar 23:31    INFO   Final: FREEDOM AUC=0.7899, MLP AUC=0.8653
+04 Mar 23:31    INFO 
+--- Disease 54/92 (fold 54) ---
+04 Mar 23:31    INFO   True associations: 139
+04 Mar 23:31    INFO   Training samples: 3779
+04 Mar 23:31    INFO   Train: 3779, Test: 139
+04 Mar 23:31    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:31    INFO     FREEDOM Epoch 50/300, Loss: 0.0098
+04 Mar 23:32    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+04 Mar 23:32    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 23:32    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 23:33    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 23:33    INFO     FREEDOM Early stopping at epoch 290
+04 Mar 23:33    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 23:34    INFO     FREEDOM Results: AUC=0.7956, AUPR=0.0011
+04 Mar 23:34    INFO   === Stage 2: MLP Training ===
+04 Mar 23:34    INFO     MLP Epoch 20/100, Loss: 0.0893
+04 Mar 23:34    INFO     MLP Epoch 40/100, Loss: 0.0592
+04 Mar 23:34    INFO     MLP Epoch 60/100, Loss: 0.0410
+04 Mar 23:34    INFO     MLP Epoch 80/100, Loss: 0.0382
+04 Mar 23:34    INFO     MLP Epoch 100/100, Loss: 0.0303
+04 Mar 23:34    INFO     MLP Training completed, final loss: 0.0303
+04 Mar 23:35    INFO     MLP Results: AUC=0.8217, AUPR=0.0011
+04 Mar 23:35    INFO   Final: FREEDOM AUC=0.7956, MLP AUC=0.8217
+04 Mar 23:35    INFO 
+--- Disease 55/92 (fold 55) ---
+04 Mar 23:35    INFO   True associations: 8
+04 Mar 23:35    INFO   Training samples: 3910
+04 Mar 23:35    INFO   Train: 3910, Test: 8
+04 Mar 23:35    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:35    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+04 Mar 23:35    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+04 Mar 23:36    INFO     FREEDOM Epoch 150/300, Loss: 0.0013
+04 Mar 23:36    INFO     FREEDOM Early stopping at epoch 190
+04 Mar 23:36    INFO     FREEDOM Training completed, final loss: 0.0006
+04 Mar 23:37    INFO     FREEDOM Results: AUC=0.7976, AUPR=0.0001
+04 Mar 23:37    INFO   === Stage 2: MLP Training ===
+04 Mar 23:37    INFO     MLP Epoch 20/100, Loss: 0.0759
+04 Mar 23:37    INFO     MLP Epoch 40/100, Loss: 0.0599
+04 Mar 23:37    INFO     MLP Early stopping at epoch 48
+04 Mar 23:37    INFO     MLP Training completed, final loss: 0.0461
+04 Mar 23:38    INFO     MLP Results: AUC=0.8280, AUPR=0.0001
+04 Mar 23:38    INFO   Final: FREEDOM AUC=0.7976, MLP AUC=0.8280
+04 Mar 23:38    INFO 
+--- Disease 56/92 (fold 56) ---
+04 Mar 23:38    INFO   True associations: 2
+04 Mar 23:38    INFO   Training samples: 3916
+04 Mar 23:38    INFO   Train: 3916, Test: 2
+04 Mar 23:38    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:38    INFO     FREEDOM Epoch 50/300, Loss: 0.0092
+04 Mar 23:39    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 23:39    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 23:40    INFO     FREEDOM Epoch 200/300, Loss: 0.0008
+04 Mar 23:40    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 23:40    INFO     FREEDOM Early stopping at epoch 268
+04 Mar 23:40    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 23:41    INFO     FREEDOM Results: AUC=0.7703, AUPR=0.0000
+04 Mar 23:41    INFO   === Stage 2: MLP Training ===
+04 Mar 23:41    INFO     MLP Early stopping at epoch 13
+04 Mar 23:41    INFO     MLP Training completed, final loss: 0.1584
+04 Mar 23:42    INFO     MLP Results: AUC=0.8906, AUPR=0.0001
+04 Mar 23:42    INFO   Final: FREEDOM AUC=0.7703, MLP AUC=0.8906
+04 Mar 23:42    INFO 
+--- Disease 57/92 (fold 57) ---
+04 Mar 23:42    INFO   True associations: 5
+04 Mar 23:42    INFO   Training samples: 3913
+04 Mar 23:42    INFO   Train: 3913, Test: 5
+04 Mar 23:42    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:42    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+04 Mar 23:43    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+04 Mar 23:43    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+04 Mar 23:44    INFO     FREEDOM Epoch 200/300, Loss: 0.0003
+04 Mar 23:44    INFO     FREEDOM Early stopping at epoch 241
+04 Mar 23:44    INFO     FREEDOM Training completed, final loss: 0.0003
+04 Mar 23:45    INFO     FREEDOM Results: AUC=0.7871, AUPR=0.0000
+04 Mar 23:45    INFO   === Stage 2: MLP Training ===
+04 Mar 23:45    INFO     MLP Epoch 20/100, Loss: 0.0691
+04 Mar 23:45    INFO     MLP Early stopping at epoch 37
+04 Mar 23:45    INFO     MLP Training completed, final loss: 0.0569
+04 Mar 23:46    INFO     MLP Results: AUC=0.7626, AUPR=0.0000
+04 Mar 23:46    INFO   Final: FREEDOM AUC=0.7871, MLP AUC=0.7626
+04 Mar 23:46    INFO 
+--- Disease 58/92 (fold 58) ---
+04 Mar 23:46    INFO   True associations: 161
+04 Mar 23:46    INFO   Training samples: 3757
+04 Mar 23:46    INFO   Train: 3757, Test: 161
+04 Mar 23:46    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:46    INFO     FREEDOM Epoch 50/300, Loss: 0.0096
+04 Mar 23:47    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+04 Mar 23:47    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 23:47    INFO     FREEDOM Early stopping at epoch 191
+04 Mar 23:47    INFO     FREEDOM Training completed, final loss: 0.0006
+04 Mar 23:48    INFO     FREEDOM Results: AUC=0.8005, AUPR=0.0013
+04 Mar 23:48    INFO   === Stage 2: MLP Training ===
+04 Mar 23:48    INFO     MLP Epoch 20/100, Loss: 0.0742
+04 Mar 23:48    INFO     MLP Epoch 40/100, Loss: 0.0598
+04 Mar 23:48    INFO     MLP Epoch 60/100, Loss: 0.0553
+04 Mar 23:48    INFO     MLP Early stopping at epoch 61
+04 Mar 23:48    INFO     MLP Training completed, final loss: 0.0414
+04 Mar 23:49    INFO     MLP Results: AUC=0.6852, AUPR=0.0007
+04 Mar 23:49    INFO   Final: FREEDOM AUC=0.8005, MLP AUC=0.6852
+04 Mar 23:49    INFO 
+--- Disease 59/92 (fold 59) ---
+04 Mar 23:49    INFO   True associations: 1
+04 Mar 23:49    INFO   Training samples: 3917
+04 Mar 23:49    INFO   Train: 3917, Test: 1
+04 Mar 23:49    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:50    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+04 Mar 23:50    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 23:50    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+04 Mar 23:51    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+04 Mar 23:51    INFO     FREEDOM Early stopping at epoch 214
+04 Mar 23:51    INFO     FREEDOM Training completed, final loss: 0.0006
+04 Mar 23:52    INFO     FREEDOM Results: AUC=0.7709, AUPR=0.0000
+04 Mar 23:52    INFO   === Stage 2: MLP Training ===
+04 Mar 23:52    INFO     MLP Epoch 20/100, Loss: 0.0726
+04 Mar 23:52    INFO     MLP Epoch 40/100, Loss: 0.0526
+04 Mar 23:52    INFO     MLP Early stopping at epoch 52
+04 Mar 23:52    INFO     MLP Training completed, final loss: 0.0464
+04 Mar 23:53    INFO     MLP Results: AUC=0.7895, AUPR=0.0000
+04 Mar 23:53    INFO   Final: FREEDOM AUC=0.7709, MLP AUC=0.7895
+04 Mar 23:53    INFO 
+--- Disease 60/92 (fold 60) ---
+04 Mar 23:53    INFO   True associations: 58
+04 Mar 23:53    INFO   Training samples: 3860
+04 Mar 23:53    INFO   Train: 3860, Test: 58
+04 Mar 23:53    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:53    INFO     FREEDOM Epoch 50/300, Loss: 0.0082
+04 Mar 23:53    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+04 Mar 23:54    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+04 Mar 23:54    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+04 Mar 23:55    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+04 Mar 23:55    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+04 Mar 23:55    INFO     FREEDOM Training completed, final loss: 0.0002
+04 Mar 23:56    INFO     FREEDOM Results: AUC=0.8015, AUPR=0.0005
+04 Mar 23:56    INFO   === Stage 2: MLP Training ===
+04 Mar 23:56    INFO     MLP Epoch 20/100, Loss: 0.0822
+04 Mar 23:56    INFO     MLP Epoch 40/100, Loss: 0.0477
+04 Mar 23:56    INFO     MLP Epoch 60/100, Loss: 0.0434
+04 Mar 23:56    INFO     MLP Early stopping at epoch 71
+04 Mar 23:56    INFO     MLP Training completed, final loss: 0.0393
+04 Mar 23:57    INFO     MLP Results: AUC=0.7757, AUPR=0.0004
+04 Mar 23:57    INFO   Final: FREEDOM AUC=0.8015, MLP AUC=0.7757
+04 Mar 23:57    INFO 
+--- Disease 61/92 (fold 61) ---
+04 Mar 23:57    INFO   True associations: 1
+04 Mar 23:57    INFO   Training samples: 3917
+04 Mar 23:57    INFO   Train: 3917, Test: 1
+04 Mar 23:57    INFO   === Stage 1: FREEDOM Training ===
+04 Mar 23:57    INFO     FREEDOM Epoch 50/300, Loss: 0.0084
+04 Mar 23:58    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+04 Mar 23:58    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+04 Mar 23:58    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+04 Mar 23:59    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+04 Mar 23:59    INFO     FREEDOM Early stopping at epoch 262
+04 Mar 23:59    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 00:00    INFO     FREEDOM Results: AUC=0.7948, AUPR=0.0000
+05 Mar 00:00    INFO   === Stage 2: MLP Training ===
+05 Mar 00:00    INFO     MLP Epoch 20/100, Loss: 0.0836
+05 Mar 00:00    INFO     MLP Epoch 40/100, Loss: 0.0595
+05 Mar 00:00    INFO     MLP Epoch 60/100, Loss: 0.0418
+05 Mar 00:00    INFO     MLP Early stopping at epoch 69
+05 Mar 00:00    INFO     MLP Training completed, final loss: 0.0343
+05 Mar 00:01    INFO     MLP Results: AUC=0.8320, AUPR=0.0000
+05 Mar 00:01    INFO   Final: FREEDOM AUC=0.7948, MLP AUC=0.8320
+05 Mar 00:01    INFO 
+--- Disease 62/92 (fold 62) ---
+05 Mar 00:01    INFO   True associations: 1
+05 Mar 00:01    INFO   Training samples: 3917
+05 Mar 00:01    INFO   Train: 3917, Test: 1
+05 Mar 00:01    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:01    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+05 Mar 00:02    INFO     FREEDOM Epoch 100/300, Loss: 0.0036
+05 Mar 00:02    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 00:02    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 00:03    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+05 Mar 00:03    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 00:03    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 00:04    INFO     FREEDOM Results: AUC=0.7533, AUPR=0.0000
+05 Mar 00:04    INFO   === Stage 2: MLP Training ===
+05 Mar 00:04    INFO     MLP Epoch 20/100, Loss: 0.0806
+05 Mar 00:04    INFO     MLP Epoch 40/100, Loss: 0.0565
+05 Mar 00:04    INFO     MLP Epoch 60/100, Loss: 0.0428
+05 Mar 00:04    INFO     MLP Early stopping at epoch 79
+05 Mar 00:04    INFO     MLP Training completed, final loss: 0.0391
+05 Mar 00:05    INFO     MLP Results: AUC=0.8608, AUPR=0.0000
+05 Mar 00:05    INFO   Final: FREEDOM AUC=0.7533, MLP AUC=0.8608
+05 Mar 00:05    INFO 
+--- Disease 63/92 (fold 63) ---
+05 Mar 00:05    INFO   True associations: 0
+05 Mar 00:05    INFO   Training samples: 3918
+05 Mar 00:05    INFO   Disease 62: No known associations, skipping...
+05 Mar 00:05    INFO 
+--- Disease 64/92 (fold 64) ---
+05 Mar 00:05    INFO   True associations: 1
+05 Mar 00:05    INFO   Training samples: 3917
+05 Mar 00:05    INFO   Train: 3917, Test: 1
+05 Mar 00:05    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:06    INFO     FREEDOM Epoch 50/300, Loss: 0.0106
+05 Mar 00:06    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+05 Mar 00:06    INFO     FREEDOM Epoch 150/300, Loss: 0.0023
+05 Mar 00:07    INFO     FREEDOM Early stopping at epoch 185
+05 Mar 00:07    INFO     FREEDOM Training completed, final loss: 0.0006
+05 Mar 00:08    INFO     FREEDOM Results: AUC=0.7731, AUPR=0.0000
+05 Mar 00:08    INFO   === Stage 2: MLP Training ===
+05 Mar 00:08    INFO     MLP Epoch 20/100, Loss: 0.0879
+05 Mar 00:08    INFO     MLP Early stopping at epoch 39
+05 Mar 00:08    INFO     MLP Training completed, final loss: 0.0730
+05 Mar 00:09    INFO     MLP Results: AUC=0.8998, AUPR=0.0000
+05 Mar 00:09    INFO   Final: FREEDOM AUC=0.7731, MLP AUC=0.8998
+05 Mar 00:09    INFO 
+--- Disease 65/92 (fold 65) ---
+05 Mar 00:09    INFO   True associations: 55
+05 Mar 00:09    INFO   Training samples: 3863
+05 Mar 00:09    INFO   Train: 3863, Test: 55
+05 Mar 00:09    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:09    INFO     FREEDOM Epoch 50/300, Loss: 0.0100
+05 Mar 00:09    INFO     FREEDOM Epoch 100/300, Loss: 0.0025
+05 Mar 00:10    INFO     FREEDOM Epoch 150/300, Loss: 0.0011
+05 Mar 00:10    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 00:10    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+05 Mar 00:11    INFO     FREEDOM Early stopping at epoch 296
+05 Mar 00:11    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 00:12    INFO     FREEDOM Results: AUC=0.7645, AUPR=0.0004
+05 Mar 00:12    INFO   === Stage 2: MLP Training ===
+05 Mar 00:12    INFO     MLP Epoch 20/100, Loss: 0.0881
+05 Mar 00:12    INFO     MLP Epoch 40/100, Loss: 0.0646
+05 Mar 00:12    INFO     MLP Epoch 60/100, Loss: 0.0436
+05 Mar 00:12    INFO     MLP Early stopping at epoch 69
+05 Mar 00:12    INFO     MLP Training completed, final loss: 0.0423
+05 Mar 00:13    INFO     MLP Results: AUC=0.8208, AUPR=0.0005
+05 Mar 00:13    INFO   Final: FREEDOM AUC=0.7645, MLP AUC=0.8208
+05 Mar 00:13    INFO 
+--- Disease 66/92 (fold 66) ---
+05 Mar 00:13    INFO   True associations: 2
+05 Mar 00:13    INFO   Training samples: 3916
+05 Mar 00:13    INFO   Train: 3916, Test: 2
+05 Mar 00:13    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:13    INFO     FREEDOM Epoch 50/300, Loss: 0.0094
+05 Mar 00:13    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+05 Mar 00:14    INFO     FREEDOM Early stopping at epoch 144
+05 Mar 00:14    INFO     FREEDOM Training completed, final loss: 0.0022
+05 Mar 00:15    INFO     FREEDOM Results: AUC=0.7743, AUPR=0.0000
+05 Mar 00:15    INFO   === Stage 2: MLP Training ===
+05 Mar 00:15    INFO     MLP Epoch 20/100, Loss: 0.0692
+05 Mar 00:15    INFO     MLP Epoch 40/100, Loss: 0.0443
+05 Mar 00:15    INFO     MLP Epoch 60/100, Loss: 0.0458
+05 Mar 00:15    INFO     MLP Early stopping at epoch 64
+05 Mar 00:15    INFO     MLP Training completed, final loss: 0.0366
+05 Mar 00:16    INFO     MLP Results: AUC=0.8169, AUPR=0.0000
+05 Mar 00:16    INFO   Final: FREEDOM AUC=0.7743, MLP AUC=0.8169
+05 Mar 00:16    INFO 
+--- Disease 67/92 (fold 67) ---
+05 Mar 00:16    INFO   True associations: 1
+05 Mar 00:16    INFO   Training samples: 3917
+05 Mar 00:16    INFO   Train: 3917, Test: 1
+05 Mar 00:16    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:16    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+05 Mar 00:16    INFO     FREEDOM Epoch 100/300, Loss: 0.0021
+05 Mar 00:17    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 00:17    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 00:17    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 00:18    INFO     FREEDOM Early stopping at epoch 254
+05 Mar 00:18    INFO     FREEDOM Training completed, final loss: 0.0004
+05 Mar 00:18    INFO     FREEDOM Results: AUC=0.7870, AUPR=0.0000
+05 Mar 00:18    INFO   === Stage 2: MLP Training ===
+05 Mar 00:18    INFO     MLP Epoch 20/100, Loss: 0.0733
+05 Mar 00:18    INFO     MLP Epoch 40/100, Loss: 0.0647
+05 Mar 00:18    INFO     MLP Early stopping at epoch 53
+05 Mar 00:18    INFO     MLP Training completed, final loss: 0.0636
+05 Mar 00:19    INFO     MLP Results: AUC=0.7876, AUPR=0.0000
+05 Mar 00:19    INFO   Final: FREEDOM AUC=0.7870, MLP AUC=0.7876
+05 Mar 00:19    INFO 
+--- Disease 68/92 (fold 68) ---
+05 Mar 00:19    INFO   True associations: 18
+05 Mar 00:19    INFO   Training samples: 3900
+05 Mar 00:19    INFO   Train: 3900, Test: 18
+05 Mar 00:19    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:20    INFO     FREEDOM Epoch 50/300, Loss: 0.0082
+05 Mar 00:20    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+05 Mar 00:21    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 00:21    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 00:21    INFO     FREEDOM Early stopping at epoch 233
+05 Mar 00:21    INFO     FREEDOM Training completed, final loss: 0.0008
+05 Mar 00:22    INFO     FREEDOM Results: AUC=0.7882, AUPR=0.0001
+05 Mar 00:22    INFO   === Stage 2: MLP Training ===
+05 Mar 00:22    INFO     MLP Epoch 20/100, Loss: 0.0713
+05 Mar 00:22    INFO     MLP Epoch 40/100, Loss: 0.0577
+05 Mar 00:22    INFO     MLP Early stopping at epoch 40
+05 Mar 00:22    INFO     MLP Training completed, final loss: 0.0577
+05 Mar 00:23    INFO     MLP Results: AUC=0.7357, AUPR=0.0001
+05 Mar 00:23    INFO   Final: FREEDOM AUC=0.7882, MLP AUC=0.7357
+05 Mar 00:23    INFO 
+--- Disease 69/92 (fold 69) ---
+05 Mar 00:23    INFO   True associations: 3
+05 Mar 00:23    INFO   Training samples: 3915
+05 Mar 00:23    INFO   Train: 3915, Test: 3
+05 Mar 00:23    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:23    INFO     FREEDOM Epoch 50/300, Loss: 0.0101
+05 Mar 00:24    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+05 Mar 00:24    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 00:25    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 00:25    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 00:25    INFO     FREEDOM Epoch 300/300, Loss: 0.0007
+05 Mar 00:25    INFO     FREEDOM Training completed, final loss: 0.0007
+05 Mar 00:26    INFO     FREEDOM Results: AUC=0.7927, AUPR=0.0000
+05 Mar 00:26    INFO   === Stage 2: MLP Training ===
+05 Mar 00:26    INFO     MLP Epoch 20/100, Loss: 0.0866
+05 Mar 00:26    INFO     MLP Epoch 40/100, Loss: 0.0592
+05 Mar 00:26    INFO     MLP Epoch 60/100, Loss: 0.0425
+05 Mar 00:26    INFO     MLP Epoch 80/100, Loss: 0.0448
+05 Mar 00:26    INFO     MLP Early stopping at epoch 96
+05 Mar 00:26    INFO     MLP Training completed, final loss: 0.0295
+05 Mar 00:27    INFO     MLP Results: AUC=0.7443, AUPR=0.0000
+05 Mar 00:27    INFO   Final: FREEDOM AUC=0.7927, MLP AUC=0.7443
+05 Mar 00:27    INFO 
+--- Disease 70/92 (fold 70) ---
+05 Mar 00:27    INFO   True associations: 1
+05 Mar 00:27    INFO   Training samples: 3917
+05 Mar 00:27    INFO   Train: 3917, Test: 1
+05 Mar 00:27    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:28    INFO     FREEDOM Epoch 50/300, Loss: 0.0088
+05 Mar 00:28    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+05 Mar 00:28    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+05 Mar 00:29    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 00:29    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 00:30    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+05 Mar 00:30    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 00:31    INFO     FREEDOM Results: AUC=0.7833, AUPR=0.0000
+05 Mar 00:31    INFO   === Stage 2: MLP Training ===
+05 Mar 00:31    INFO     MLP Epoch 20/100, Loss: 0.0926
+05 Mar 00:31    INFO     MLP Epoch 40/100, Loss: 0.0542
+05 Mar 00:31    INFO     MLP Epoch 60/100, Loss: 0.0515
+05 Mar 00:31    INFO     MLP Epoch 80/100, Loss: 0.0317
+05 Mar 00:31    INFO     MLP Early stopping at epoch 94
+05 Mar 00:31    INFO     MLP Training completed, final loss: 0.0322
+05 Mar 00:32    INFO     MLP Results: AUC=0.8493, AUPR=0.0000
+05 Mar 00:32    INFO   Final: FREEDOM AUC=0.7833, MLP AUC=0.8493
+05 Mar 00:32    INFO 
+--- Disease 71/92 (fold 71) ---
+05 Mar 00:32    INFO   True associations: 4
+05 Mar 00:32    INFO   Training samples: 3914
+05 Mar 00:32    INFO   Train: 3914, Test: 4
+05 Mar 00:32    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:32    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+05 Mar 00:32    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+05 Mar 00:33    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+05 Mar 00:33    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 00:33    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+05 Mar 00:34    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 00:34    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 00:35    INFO     FREEDOM Results: AUC=0.7834, AUPR=0.0000
+05 Mar 00:35    INFO   === Stage 2: MLP Training ===
+05 Mar 00:35    INFO     MLP Epoch 20/100, Loss: 0.0695
+05 Mar 00:35    INFO     MLP Early stopping at epoch 31
+05 Mar 00:35    INFO     MLP Training completed, final loss: 0.0671
+05 Mar 00:36    INFO     MLP Results: AUC=0.6528, AUPR=0.0000
+05 Mar 00:36    INFO   Final: FREEDOM AUC=0.7834, MLP AUC=0.6528
+05 Mar 00:36    INFO 
+--- Disease 72/92 (fold 72) ---
+05 Mar 00:36    INFO   True associations: 3
+05 Mar 00:36    INFO   Training samples: 3915
+05 Mar 00:36    INFO   Train: 3915, Test: 3
+05 Mar 00:36    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:36    INFO     FREEDOM Epoch 50/300, Loss: 0.0097
+05 Mar 00:37    INFO     FREEDOM Epoch 100/300, Loss: 0.0021
+05 Mar 00:37    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+05 Mar 00:37    INFO     FREEDOM Early stopping at epoch 185
+05 Mar 00:37    INFO     FREEDOM Training completed, final loss: 0.0007
+05 Mar 00:38    INFO     FREEDOM Results: AUC=0.7711, AUPR=0.0000
+05 Mar 00:38    INFO   === Stage 2: MLP Training ===
+05 Mar 00:38    INFO     MLP Epoch 20/100, Loss: 0.0735
+05 Mar 00:38    INFO     MLP Early stopping at epoch 36
+05 Mar 00:38    INFO     MLP Training completed, final loss: 0.0706
+05 Mar 00:39    INFO     MLP Results: AUC=0.5019, AUPR=0.0000
+05 Mar 00:39    INFO   Final: FREEDOM AUC=0.7711, MLP AUC=0.5019
+05 Mar 00:39    INFO 
+--- Disease 73/92 (fold 73) ---
+05 Mar 00:39    INFO   True associations: 4
+05 Mar 00:39    INFO   Training samples: 3914
+05 Mar 00:39    INFO   Train: 3914, Test: 4
+05 Mar 00:39    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:39    INFO     FREEDOM Epoch 50/300, Loss: 0.0104
+05 Mar 00:40    INFO     FREEDOM Epoch 100/300, Loss: 0.0028
+05 Mar 00:40    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+05 Mar 00:41    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 00:41    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+05 Mar 00:41    INFO     FREEDOM Early stopping at epoch 285
+05 Mar 00:41    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 00:42    INFO     FREEDOM Results: AUC=0.7785, AUPR=0.0000
+05 Mar 00:42    INFO   === Stage 2: MLP Training ===
+05 Mar 00:42    INFO     MLP Epoch 20/100, Loss: 0.0672
+05 Mar 00:42    INFO     MLP Epoch 40/100, Loss: 0.0508
+05 Mar 00:42    INFO     MLP Early stopping at epoch 47
+05 Mar 00:42    INFO     MLP Training completed, final loss: 0.0528
+05 Mar 00:43    INFO     MLP Results: AUC=0.8354, AUPR=0.0000
+05 Mar 00:43    INFO   Final: FREEDOM AUC=0.7785, MLP AUC=0.8354
+05 Mar 00:43    INFO 
+--- Disease 74/92 (fold 74) ---
+05 Mar 00:43    INFO   True associations: 8
+05 Mar 00:43    INFO   Training samples: 3910
+05 Mar 00:43    INFO   Train: 3910, Test: 8
+05 Mar 00:43    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:43    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+05 Mar 00:44    INFO     FREEDOM Epoch 100/300, Loss: 0.0035
+05 Mar 00:44    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+05 Mar 00:45    INFO     FREEDOM Epoch 200/300, Loss: 0.0009
+05 Mar 00:45    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+05 Mar 00:45    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+05 Mar 00:45    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 00:46    INFO     FREEDOM Results: AUC=0.7895, AUPR=0.0001
+05 Mar 00:46    INFO   === Stage 2: MLP Training ===
+05 Mar 00:46    INFO     MLP Epoch 20/100, Loss: 0.0803
+05 Mar 00:46    INFO     MLP Epoch 40/100, Loss: 0.0517
+05 Mar 00:46    INFO     MLP Epoch 60/100, Loss: 0.0347
+05 Mar 00:46    INFO     MLP Epoch 80/100, Loss: 0.0248
+05 Mar 00:46    INFO     MLP Early stopping at epoch 90
+05 Mar 00:46    INFO     MLP Training completed, final loss: 0.0333
+05 Mar 00:47    INFO     MLP Results: AUC=0.8166, AUPR=0.0001
+05 Mar 00:47    INFO   Final: FREEDOM AUC=0.7895, MLP AUC=0.8166
+05 Mar 00:47    INFO 
+--- Disease 75/92 (fold 75) ---
+05 Mar 00:47    INFO   True associations: 1
+05 Mar 00:47    INFO   Training samples: 3917
+05 Mar 00:47    INFO   Train: 3917, Test: 1
+05 Mar 00:47    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:48    INFO     FREEDOM Epoch 50/300, Loss: 0.0136
+05 Mar 00:48    INFO     FREEDOM Epoch 100/300, Loss: 0.0021
+05 Mar 00:49    INFO     FREEDOM Epoch 150/300, Loss: 0.0013
+05 Mar 00:49    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 00:49    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+05 Mar 00:50    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 00:50    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 00:51    INFO     FREEDOM Results: AUC=0.7777, AUPR=0.0000
+05 Mar 00:51    INFO   === Stage 2: MLP Training ===
+05 Mar 00:51    INFO     MLP Epoch 20/100, Loss: 0.0864
+05 Mar 00:51    INFO     MLP Epoch 40/100, Loss: 0.0640
+05 Mar 00:51    INFO     MLP Early stopping at epoch 54
+05 Mar 00:51    INFO     MLP Training completed, final loss: 0.0582
+05 Mar 00:52    INFO     MLP Results: AUC=0.7750, AUPR=0.0000
+05 Mar 00:52    INFO   Final: FREEDOM AUC=0.7777, MLP AUC=0.7750
+05 Mar 00:52    INFO 
+--- Disease 76/92 (fold 76) ---
+05 Mar 00:52    INFO   True associations: 124
+05 Mar 00:52    INFO   Training samples: 3794
+05 Mar 00:52    INFO   Train: 3794, Test: 124
+05 Mar 00:52    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:52    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+05 Mar 00:52    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+05 Mar 00:53    INFO     FREEDOM Epoch 150/300, Loss: 0.0015
+05 Mar 00:53    INFO     FREEDOM Early stopping at epoch 183
+05 Mar 00:53    INFO     FREEDOM Training completed, final loss: 0.0010
+05 Mar 00:54    INFO     FREEDOM Results: AUC=0.7883, AUPR=0.0009
+05 Mar 00:54    INFO   === Stage 2: MLP Training ===
+05 Mar 00:54    INFO     MLP Epoch 20/100, Loss: 0.0750
+05 Mar 00:54    INFO     MLP Epoch 40/100, Loss: 0.0652
+05 Mar 00:54    INFO     MLP Early stopping at epoch 43
+05 Mar 00:54    INFO     MLP Training completed, final loss: 0.0501
+05 Mar 00:55    INFO     MLP Results: AUC=0.7110, AUPR=0.0006
+05 Mar 00:55    INFO   Final: FREEDOM AUC=0.7883, MLP AUC=0.7110
+05 Mar 00:55    INFO 
+--- Disease 77/92 (fold 77) ---
+05 Mar 00:55    INFO   True associations: 5
+05 Mar 00:55    INFO   Training samples: 3913
+05 Mar 00:55    INFO   Train: 3913, Test: 5
+05 Mar 00:55    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:55    INFO     FREEDOM Epoch 50/300, Loss: 0.0093
+05 Mar 00:56    INFO     FREEDOM Epoch 100/300, Loss: 0.0025
+05 Mar 00:56    INFO     FREEDOM Epoch 150/300, Loss: 0.0012
+05 Mar 00:56    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 00:57    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 00:57    INFO     FREEDOM Early stopping at epoch 275
+05 Mar 00:57    INFO     FREEDOM Training completed, final loss: 0.0003
+05 Mar 00:58    INFO     FREEDOM Results: AUC=0.8114, AUPR=0.0000
+05 Mar 00:58    INFO   === Stage 2: MLP Training ===
+05 Mar 00:58    INFO     MLP Epoch 20/100, Loss: 0.0936
+05 Mar 00:58    INFO     MLP Epoch 40/100, Loss: 0.0639
+05 Mar 00:58    INFO     MLP Early stopping at epoch 54
+05 Mar 00:58    INFO     MLP Training completed, final loss: 0.0485
+05 Mar 00:59    INFO     MLP Results: AUC=0.7677, AUPR=0.0000
+05 Mar 00:59    INFO   Final: FREEDOM AUC=0.8114, MLP AUC=0.7677
+05 Mar 00:59    INFO 
+--- Disease 78/92 (fold 78) ---
+05 Mar 00:59    INFO   True associations: 41
+05 Mar 00:59    INFO   Training samples: 3877
+05 Mar 00:59    INFO   Train: 3877, Test: 41
+05 Mar 00:59    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 00:59    INFO     FREEDOM Epoch 50/300, Loss: 0.0095
+05 Mar 01:00    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+05 Mar 01:00    INFO     FREEDOM Epoch 150/300, Loss: 0.0016
+05 Mar 01:00    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:01    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+05 Mar 01:01    INFO     FREEDOM Epoch 300/300, Loss: 0.0003
+05 Mar 01:01    INFO     FREEDOM Training completed, final loss: 0.0003
+05 Mar 01:02    INFO     FREEDOM Results: AUC=0.8018, AUPR=0.0003
+05 Mar 01:02    INFO   === Stage 2: MLP Training ===
+05 Mar 01:02    INFO     MLP Epoch 20/100, Loss: 0.0737
+05 Mar 01:02    INFO     MLP Epoch 40/100, Loss: 0.0637
+05 Mar 01:02    INFO     MLP Epoch 60/100, Loss: 0.0428
+05 Mar 01:02    INFO     MLP Epoch 80/100, Loss: 0.0371
+05 Mar 01:02    INFO     MLP Early stopping at epoch 81
+05 Mar 01:02    INFO     MLP Training completed, final loss: 0.0330
+05 Mar 01:03    INFO     MLP Results: AUC=0.8058, AUPR=0.0003
+05 Mar 01:03    INFO   Final: FREEDOM AUC=0.8018, MLP AUC=0.8058
+05 Mar 01:03    INFO 
+--- Disease 79/92 (fold 79) ---
+05 Mar 01:03    INFO   True associations: 5
+05 Mar 01:03    INFO   Training samples: 3913
+05 Mar 01:03    INFO   Train: 3913, Test: 5
+05 Mar 01:03    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:03    INFO     FREEDOM Epoch 50/300, Loss: 0.0092
+05 Mar 01:04    INFO     FREEDOM Epoch 100/300, Loss: 0.0029
+05 Mar 01:04    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 01:04    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:05    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 01:05    INFO     FREEDOM Early stopping at epoch 261
+05 Mar 01:05    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 01:06    INFO     FREEDOM Results: AUC=0.7874, AUPR=0.0000
+05 Mar 01:06    INFO   === Stage 2: MLP Training ===
+05 Mar 01:06    INFO     MLP Epoch 20/100, Loss: 0.0824
+05 Mar 01:06    INFO     MLP Epoch 40/100, Loss: 0.0620
+05 Mar 01:06    INFO     MLP Epoch 60/100, Loss: 0.0377
+05 Mar 01:06    INFO     MLP Epoch 80/100, Loss: 0.0412
+05 Mar 01:06    INFO     MLP Epoch 100/100, Loss: 0.0289
+05 Mar 01:06    INFO     MLP Training completed, final loss: 0.0289
+05 Mar 01:07    INFO     MLP Results: AUC=0.8976, AUPR=0.0001
+05 Mar 01:07    INFO   Final: FREEDOM AUC=0.7874, MLP AUC=0.8976
+05 Mar 01:07    INFO 
+--- Disease 80/92 (fold 80) ---
+05 Mar 01:07    INFO   True associations: 244
+05 Mar 01:07    INFO   Training samples: 3674
+05 Mar 01:07    INFO   Train: 3674, Test: 244
+05 Mar 01:07    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:07    INFO     FREEDOM Epoch 50/300, Loss: 0.0087
+05 Mar 01:08    INFO     FREEDOM Epoch 100/300, Loss: 0.0019
+05 Mar 01:08    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:08    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:09    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+05 Mar 01:09    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 01:09    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 01:10    INFO     FREEDOM Results: AUC=0.7883, AUPR=0.0018
+05 Mar 01:10    INFO   === Stage 2: MLP Training ===
+05 Mar 01:10    INFO     MLP Epoch 20/100, Loss: 0.0928
+05 Mar 01:10    INFO     MLP Epoch 40/100, Loss: 0.0672
+05 Mar 01:10    INFO     MLP Early stopping at epoch 43
+05 Mar 01:10    INFO     MLP Training completed, final loss: 0.0624
+05 Mar 01:11    INFO     MLP Results: AUC=0.7670, AUPR=0.0015
+05 Mar 01:11    INFO   Final: FREEDOM AUC=0.7883, MLP AUC=0.7670
+05 Mar 01:11    INFO 
+--- Disease 81/92 (fold 81) ---
+05 Mar 01:11    INFO   True associations: 3
+05 Mar 01:11    INFO   Training samples: 3915
+05 Mar 01:11    INFO   Train: 3915, Test: 3
+05 Mar 01:11    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:11    INFO     FREEDOM Epoch 50/300, Loss: 0.0104
+05 Mar 01:12    INFO     FREEDOM Epoch 100/300, Loss: 0.0024
+05 Mar 01:12    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 01:12    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 01:13    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+05 Mar 01:13    INFO     FREEDOM Epoch 300/300, Loss: 0.0002
+05 Mar 01:13    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 01:14    INFO     FREEDOM Results: AUC=0.7862, AUPR=0.0000
+05 Mar 01:14    INFO   === Stage 2: MLP Training ===
+05 Mar 01:14    INFO     MLP Epoch 20/100, Loss: 0.0831
+05 Mar 01:14    INFO     MLP Early stopping at epoch 39
+05 Mar 01:14    INFO     MLP Training completed, final loss: 0.0622
+05 Mar 01:15    INFO     MLP Results: AUC=0.6533, AUPR=0.0000
+05 Mar 01:15    INFO   Final: FREEDOM AUC=0.7862, MLP AUC=0.6533
+05 Mar 01:15    INFO 
+--- Disease 82/92 (fold 82) ---
+05 Mar 01:15    INFO   True associations: 1
+05 Mar 01:15    INFO   Training samples: 3917
+05 Mar 01:15    INFO   Train: 3917, Test: 1
+05 Mar 01:15    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:16    INFO     FREEDOM Epoch 50/300, Loss: 0.0091
+05 Mar 01:16    INFO     FREEDOM Epoch 100/300, Loss: 0.0023
+05 Mar 01:16    INFO     FREEDOM Epoch 150/300, Loss: 0.0007
+05 Mar 01:17    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:17    INFO     FREEDOM Early stopping at epoch 241
+05 Mar 01:17    INFO     FREEDOM Training completed, final loss: 0.0003
+05 Mar 01:18    INFO     FREEDOM Results: AUC=0.7926, AUPR=0.0000
+05 Mar 01:18    INFO   === Stage 2: MLP Training ===
+05 Mar 01:18    INFO     MLP Epoch 20/100, Loss: 0.0884
+05 Mar 01:18    INFO     MLP Epoch 40/100, Loss: 0.0704
+05 Mar 01:18    INFO     MLP Epoch 60/100, Loss: 0.0431
+05 Mar 01:18    INFO     MLP Early stopping at epoch 71
+05 Mar 01:18    INFO     MLP Training completed, final loss: 0.0435
+05 Mar 01:19    INFO     MLP Results: AUC=0.7601, AUPR=0.0000
+05 Mar 01:19    INFO   Final: FREEDOM AUC=0.7926, MLP AUC=0.7601
+05 Mar 01:19    INFO 
+--- Disease 83/92 (fold 83) ---
+05 Mar 01:19    INFO   True associations: 1
+05 Mar 01:19    INFO   Training samples: 3917
+05 Mar 01:19    INFO   Train: 3917, Test: 1
+05 Mar 01:19    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:19    INFO     FREEDOM Epoch 50/300, Loss: 0.0088
+05 Mar 01:20    INFO     FREEDOM Epoch 100/300, Loss: 0.0022
+05 Mar 01:20    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:20    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 01:21    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 01:21    INFO     FREEDOM Early stopping at epoch 255
+05 Mar 01:21    INFO     FREEDOM Training completed, final loss: 0.0005
+05 Mar 01:22    INFO     FREEDOM Results: AUC=0.8034, AUPR=0.0000
+05 Mar 01:22    INFO   === Stage 2: MLP Training ===
+05 Mar 01:22    INFO     MLP Epoch 20/100, Loss: 0.0714
+05 Mar 01:22    INFO     MLP Early stopping at epoch 38
+05 Mar 01:22    INFO     MLP Training completed, final loss: 0.0589
+05 Mar 01:23    INFO     MLP Results: AUC=0.8086, AUPR=0.0000
+05 Mar 01:23    INFO   Final: FREEDOM AUC=0.8034, MLP AUC=0.8086
+05 Mar 01:23    INFO 
+--- Disease 84/92 (fold 84) ---
+05 Mar 01:23    INFO   True associations: 6
+05 Mar 01:23    INFO   Training samples: 3912
+05 Mar 01:23    INFO   Train: 3912, Test: 6
+05 Mar 01:23    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:23    INFO     FREEDOM Epoch 50/300, Loss: 0.0094
+05 Mar 01:23    INFO     FREEDOM Epoch 100/300, Loss: 0.0036
+05 Mar 01:24    INFO     FREEDOM Epoch 150/300, Loss: 0.0009
+05 Mar 01:24    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:25    INFO     FREEDOM Epoch 250/300, Loss: 0.0003
+05 Mar 01:25    INFO     FREEDOM Early stopping at epoch 264
+05 Mar 01:25    INFO     FREEDOM Training completed, final loss: 0.0004
+05 Mar 01:26    INFO     FREEDOM Results: AUC=0.7962, AUPR=0.0001
+05 Mar 01:26    INFO   === Stage 2: MLP Training ===
+05 Mar 01:26    INFO     MLP Epoch 20/100, Loss: 0.0750
+05 Mar 01:26    INFO     MLP Epoch 40/100, Loss: 0.0677
+05 Mar 01:26    INFO     MLP Epoch 60/100, Loss: 0.0516
+05 Mar 01:26    INFO     MLP Early stopping at epoch 63
+05 Mar 01:26    INFO     MLP Training completed, final loss: 0.0619
+05 Mar 01:27    INFO     MLP Results: AUC=0.7443, AUPR=0.0000
+05 Mar 01:27    INFO   Final: FREEDOM AUC=0.7962, MLP AUC=0.7443
+05 Mar 01:27    INFO 
+--- Disease 85/92 (fold 85) ---
+05 Mar 01:27    INFO   True associations: 2
+05 Mar 01:27    INFO   Training samples: 3916
+05 Mar 01:27    INFO   Train: 3916, Test: 2
+05 Mar 01:27    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:27    INFO     FREEDOM Epoch 50/300, Loss: 0.0079
+05 Mar 01:27    INFO     FREEDOM Epoch 100/300, Loss: 0.0036
+05 Mar 01:28    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:28    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:28    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+05 Mar 01:29    INFO     FREEDOM Early stopping at epoch 266
+05 Mar 01:29    INFO     FREEDOM Training completed, final loss: 0.0010
+05 Mar 01:30    INFO     FREEDOM Results: AUC=0.8256, AUPR=0.0000
+05 Mar 01:30    INFO   === Stage 2: MLP Training ===
+05 Mar 01:30    INFO     MLP Epoch 20/100, Loss: 0.0822
+05 Mar 01:30    INFO     MLP Epoch 40/100, Loss: 0.0661
+05 Mar 01:30    INFO     MLP Epoch 60/100, Loss: 0.0440
+05 Mar 01:30    INFO     MLP Epoch 80/100, Loss: 0.0322
+05 Mar 01:30    INFO     MLP Early stopping at epoch 88
+05 Mar 01:30    INFO     MLP Training completed, final loss: 0.0395
+05 Mar 01:30    INFO     MLP Results: AUC=0.9327, AUPR=0.0001
+05 Mar 01:30    INFO   Final: FREEDOM AUC=0.8256, MLP AUC=0.9327
+05 Mar 01:30    INFO 
+--- Disease 86/92 (fold 86) ---
+05 Mar 01:30    INFO   True associations: 1
+05 Mar 01:30    INFO   Training samples: 3917
+05 Mar 01:30    INFO   Train: 3917, Test: 1
+05 Mar 01:30    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:31    INFO     FREEDOM Epoch 50/300, Loss: 0.0099
+05 Mar 01:31    INFO     FREEDOM Epoch 100/300, Loss: 0.0032
+05 Mar 01:32    INFO     FREEDOM Epoch 150/300, Loss: 0.0014
+05 Mar 01:32    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 01:32    INFO     FREEDOM Epoch 250/300, Loss: 0.0006
+05 Mar 01:32    INFO     FREEDOM Early stopping at epoch 256
+05 Mar 01:32    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 01:33    INFO     FREEDOM Results: AUC=0.7978, AUPR=0.0000
+05 Mar 01:33    INFO   === Stage 2: MLP Training ===
+05 Mar 01:33    INFO     MLP Epoch 20/100, Loss: 0.0847
+05 Mar 01:33    INFO     MLP Epoch 40/100, Loss: 0.0547
+05 Mar 01:33    INFO     MLP Epoch 60/100, Loss: 0.0431
+05 Mar 01:33    INFO     MLP Early stopping at epoch 65
+05 Mar 01:33    INFO     MLP Training completed, final loss: 0.0492
+05 Mar 01:34    INFO     MLP Results: AUC=0.7919, AUPR=0.0000
+05 Mar 01:34    INFO   Final: FREEDOM AUC=0.7978, MLP AUC=0.7919
+05 Mar 01:34    INFO 
+--- Disease 87/92 (fold 87) ---
+05 Mar 01:34    INFO   True associations: 1
+05 Mar 01:34    INFO   Training samples: 3917
+05 Mar 01:34    INFO   Train: 3917, Test: 1
+05 Mar 01:34    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:35    INFO     FREEDOM Epoch 50/300, Loss: 0.0087
+05 Mar 01:35    INFO     FREEDOM Epoch 100/300, Loss: 0.0028
+05 Mar 01:35    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:36    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:36    INFO     FREEDOM Epoch 250/300, Loss: 0.0002
+05 Mar 01:37    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 01:37    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 01:37    INFO     FREEDOM Results: AUC=0.7514, AUPR=0.0000
+05 Mar 01:37    INFO   === Stage 2: MLP Training ===
+05 Mar 01:37    INFO     MLP Epoch 20/100, Loss: 0.0767
+05 Mar 01:38    INFO     MLP Epoch 40/100, Loss: 0.0492
+05 Mar 01:38    INFO     MLP Early stopping at epoch 50
+05 Mar 01:38    INFO     MLP Training completed, final loss: 0.0586
+05 Mar 01:38    INFO     MLP Results: AUC=0.9690, AUPR=0.0001
+05 Mar 01:38    INFO   Final: FREEDOM AUC=0.7514, MLP AUC=0.9690
+05 Mar 01:38    INFO 
+--- Disease 88/92 (fold 88) ---
+05 Mar 01:38    INFO   True associations: 1
+05 Mar 01:38    INFO   Training samples: 3917
+05 Mar 01:38    INFO   Train: 3917, Test: 1
+05 Mar 01:38    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:39    INFO     FREEDOM Epoch 50/300, Loss: 0.0099
+05 Mar 01:39    INFO     FREEDOM Epoch 100/300, Loss: 0.0037
+05 Mar 01:40    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 01:40    INFO     FREEDOM Epoch 200/300, Loss: 0.0004
+05 Mar 01:40    INFO     FREEDOM Epoch 250/300, Loss: 0.0004
+05 Mar 01:40    INFO     FREEDOM Early stopping at epoch 250
+05 Mar 01:40    INFO     FREEDOM Training completed, final loss: 0.0004
+05 Mar 01:41    INFO     FREEDOM Results: AUC=0.7481, AUPR=0.0000
+05 Mar 01:41    INFO   === Stage 2: MLP Training ===
+05 Mar 01:41    INFO     MLP Epoch 20/100, Loss: 0.0775
+05 Mar 01:41    INFO     MLP Epoch 40/100, Loss: 0.0616
+05 Mar 01:41    INFO     MLP Early stopping at epoch 42
+05 Mar 01:41    INFO     MLP Training completed, final loss: 0.0588
+05 Mar 01:42    INFO     MLP Results: AUC=0.9579, AUPR=0.0001
+05 Mar 01:42    INFO   Final: FREEDOM AUC=0.7481, MLP AUC=0.9579
+05 Mar 01:42    INFO 
+--- Disease 89/92 (fold 89) ---
+05 Mar 01:42    INFO   True associations: 11
+05 Mar 01:42    INFO   Training samples: 3907
+05 Mar 01:42    INFO   Train: 3907, Test: 11
+05 Mar 01:42    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:43    INFO     FREEDOM Epoch 50/300, Loss: 0.0089
+05 Mar 01:43    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+05 Mar 01:43    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:44    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 01:44    INFO     FREEDOM Epoch 250/300, Loss: 0.0005
+05 Mar 01:45    INFO     FREEDOM Epoch 300/300, Loss: 0.0001
+05 Mar 01:45    INFO     FREEDOM Training completed, final loss: 0.0001
+05 Mar 01:46    INFO     FREEDOM Results: AUC=0.7714, AUPR=0.0001
+05 Mar 01:46    INFO   === Stage 2: MLP Training ===
+05 Mar 01:46    INFO     MLP Epoch 20/100, Loss: 0.0710
+05 Mar 01:46    INFO     MLP Epoch 40/100, Loss: 0.0538
+05 Mar 01:46    INFO     MLP Epoch 60/100, Loss: 0.0549
+05 Mar 01:46    INFO     MLP Early stopping at epoch 69
+05 Mar 01:46    INFO     MLP Training completed, final loss: 0.0482
+05 Mar 01:47    INFO     MLP Results: AUC=0.8000, AUPR=0.0001
+05 Mar 01:47    INFO   Final: FREEDOM AUC=0.7714, MLP AUC=0.8000
+05 Mar 01:47    INFO 
+--- Disease 90/92 (fold 90) ---
+05 Mar 01:47    INFO   True associations: 1
+05 Mar 01:47    INFO   Training samples: 3917
+05 Mar 01:47    INFO   Train: 3917, Test: 1
+05 Mar 01:47    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:47    INFO     FREEDOM Epoch 50/300, Loss: 0.0094
+05 Mar 01:47    INFO     FREEDOM Epoch 100/300, Loss: 0.0026
+05 Mar 01:48    INFO     FREEDOM Epoch 150/300, Loss: 0.0008
+05 Mar 01:48    INFO     FREEDOM Epoch 200/300, Loss: 0.0006
+05 Mar 01:49    INFO     FREEDOM Early stopping at epoch 244
+05 Mar 01:49    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 01:49    INFO     FREEDOM Results: AUC=0.8119, AUPR=0.0000
+05 Mar 01:49    INFO   === Stage 2: MLP Training ===
+05 Mar 01:49    INFO     MLP Epoch 20/100, Loss: 0.0790
+05 Mar 01:49    INFO     MLP Epoch 40/100, Loss: 0.0710
+05 Mar 01:49    INFO     MLP Epoch 60/100, Loss: 0.0366
+05 Mar 01:50    INFO     MLP Epoch 80/100, Loss: 0.0288
+05 Mar 01:50    INFO     MLP Early stopping at epoch 83
+05 Mar 01:50    INFO     MLP Training completed, final loss: 0.0361
+05 Mar 01:50    INFO     MLP Results: AUC=0.6116, AUPR=0.0000
+05 Mar 01:50    INFO   Final: FREEDOM AUC=0.8119, MLP AUC=0.6116
+05 Mar 01:50    INFO 
+--- Disease 91/92 (fold 91) ---
+05 Mar 01:50    INFO   True associations: 1
+05 Mar 01:50    INFO   Training samples: 3917
+05 Mar 01:50    INFO   Train: 3917, Test: 1
+05 Mar 01:50    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:51    INFO     FREEDOM Epoch 50/300, Loss: 0.0097
+05 Mar 01:51    INFO     FREEDOM Epoch 100/300, Loss: 0.0030
+05 Mar 01:52    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 01:52    INFO     FREEDOM Early stopping at epoch 197
+05 Mar 01:52    INFO     FREEDOM Training completed, final loss: 0.0007
+05 Mar 01:53    INFO     FREEDOM Results: AUC=0.8120, AUPR=0.0000
+05 Mar 01:53    INFO   === Stage 2: MLP Training ===
+05 Mar 01:53    INFO     MLP Epoch 20/100, Loss: 0.0814
+05 Mar 01:53    INFO     MLP Epoch 40/100, Loss: 0.0653
+05 Mar 01:53    INFO     MLP Epoch 60/100, Loss: 0.0430
+05 Mar 01:53    INFO     MLP Early stopping at epoch 61
+05 Mar 01:53    INFO     MLP Training completed, final loss: 0.0492
+05 Mar 01:54    INFO     MLP Results: AUC=0.8962, AUPR=0.0000
+05 Mar 01:54    INFO   Final: FREEDOM AUC=0.8120, MLP AUC=0.8962
+05 Mar 01:54    INFO 
+--- Disease 92/92 (fold 92) ---
+05 Mar 01:54    INFO   True associations: 1
+05 Mar 01:54    INFO   Training samples: 3917
+05 Mar 01:54    INFO   Train: 3917, Test: 1
+05 Mar 01:54    INFO   === Stage 1: FREEDOM Training ===
+05 Mar 01:54    INFO     FREEDOM Epoch 50/300, Loss: 0.0116
+05 Mar 01:55    INFO     FREEDOM Epoch 100/300, Loss: 0.0020
+05 Mar 01:55    INFO     FREEDOM Epoch 150/300, Loss: 0.0010
+05 Mar 01:55    INFO     FREEDOM Epoch 200/300, Loss: 0.0005
+05 Mar 01:56    INFO     FREEDOM Epoch 250/300, Loss: 0.0007
+05 Mar 01:56    INFO     FREEDOM Early stopping at epoch 254
+05 Mar 01:56    INFO     FREEDOM Training completed, final loss: 0.0002
+05 Mar 01:57    INFO     FREEDOM Results: AUC=0.7873, AUPR=0.0000
+05 Mar 01:57    INFO   === Stage 2: MLP Training ===
+05 Mar 01:57    INFO     MLP Epoch 20/100, Loss: 0.0904
+05 Mar 01:57    INFO     MLP Epoch 40/100, Loss: 0.0712
+05 Mar 01:57    INFO     MLP Early stopping at epoch 48
+05 Mar 01:57    INFO     MLP Training completed, final loss: 0.0552
+05 Mar 01:58    INFO     MLP Results: AUC=0.7147, AUPR=0.0000
+05 Mar 01:58    INFO   Final: FREEDOM AUC=0.7873, MLP AUC=0.7147
+05 Mar 01:58    INFO 
+============================================================
+05 Mar 01:58    INFO DENOVO RESULTS SUMMARY
+05 Mar 01:58    INFO ============================================================
+05 Mar 01:58    INFO 
+--- FREEDOM Results ---
+05 Mar 01:58    INFO AUC: 0.7869 ± 0.0164
+05 Mar 01:58    INFO AUPR: 0.0003 ± 0.0010
+05 Mar 01:58    INFO Precision: 0.0002 ± 0.0008
+05 Mar 01:58    INFO Recall: 0.7861 ± 0.0164
+05 Mar 01:58    INFO F1: 0.0004 ± 0.0015
+05 Mar 01:58    INFO 
+--- MLP Results ---
+05 Mar 01:58    INFO AUC: 0.7799 ± 0.0846
+05 Mar 01:58    INFO AUPR: 0.0003 ± 0.0015
+05 Mar 01:58    INFO Precision: 0.0002 ± 0.0010
+05 Mar 01:58    INFO Recall: 0.7816 ± 0.0850
+05 Mar 01:58    INFO F1: 0.0005 ± 0.0021
+05 Mar 01:58    INFO 
+Results saved to: /qqzdata/project/研究实验/FREEDOM-master/data/tsRNA-disease2/denovo_results.csv
+/qqzdata/project/研究实验/FREEDOM-master/src/denovo_cross_validation.py:591: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  roc_auc = np.trapz(mean_tpr, mean_fpr)
+/qqzdata/project/研究实验/FREEDOM-master/src/denovo_cross_validation.py:592: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  pr_auc = np.trapz(mean_precision, mean_recall)
+05 Mar 01:58    INFO 
+FREEDOM Mean ROC AUC: 0.7869, PR AUC: 0.0002
+05 Mar 01:58    INFO FREEDOM AUC curve saved to: /qqzdata/project/研究实验/FREEDOM-master/tsRNA_PlotPng/FREEDOM_tsRNA-disease2_denovo_AUC.h5
+05 Mar 01:58    INFO FREEDOM AUPR curve saved to: /qqzdata/project/研究实验/FREEDOM-master/tsRNA_PlotPng/FREEDOM_tsRNA-disease2_denovo_AUPR.h5
+/qqzdata/project/研究实验/FREEDOM-master/src/denovo_cross_validation.py:620: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  roc_auc = np.trapz(mean_tpr, mean_fpr)
+/qqzdata/project/研究实验/FREEDOM-master/src/denovo_cross_validation.py:621: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  pr_auc = np.trapz(mean_precision, mean_recall)
+05 Mar 01:58    INFO 
+MLP Mean ROC AUC: 0.7799, PR AUC: 0.0003
+05 Mar 01:58    INFO MLP AUC curve saved to: /qqzdata/project/研究实验/FREEDOM-master/tsRNA_PlotPng/MLP_tsRNA-disease2_denovo_AUC.h5
+05 Mar 01:58    INFO MLP AUPR curve saved to: /qqzdata/project/研究实验/FREEDOM-master/tsRNA_PlotPng/MLP_tsRNA-disease2_denovo_AUPR.h5
+05 Mar 01:58    INFO 
+Denovo experiment completed!
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold50.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold51.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold52.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold53.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold54.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold55.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold56.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold57.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold58.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold59.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold60.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold61.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold62.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold64.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold65.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold66.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold67.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold68.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold69.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold70.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold71.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold72.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold73.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold74.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold75.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold76.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold77.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold78.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold79.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold80.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold81.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold82.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold83.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold84.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold85.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold86.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold87.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold88.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold89.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold90.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold91.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
+Embeddings saved to ../data/tsRNA-disease2/freedom_embeddings_fold92.pt
+  - User embeddings shape: torch.Size([92, 128])
+  - Item embeddings shape: torch.Size([3408, 128])
