@@ -1,2 +1,0 @@
-nohup: ignoring input
-python: can't open file '/qqzdata/project/研究实验/FREEDOM-master/denovo_cross_validation.py': [Errno 2] No such file or directory
