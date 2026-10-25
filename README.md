@@ -17,7 +17,7 @@ python case_study.py -d tsRNA-disease2 --disease "Breast Neoplasms" --top_k 10 2
 ## Architecture
 
 
-### Model Core Components (models/freedom.py)
+### Model Core Components 
 - **Dual Graph Structure**: Multimodal item graph (`mm_adj`, KNN-based) + user-item interaction graph (`norm_adj`)
 - **Edge Pruning**: Degree-sensitive dropout in `pre_epoch_processing()`
 - **Hard Negative Mixup**: Enabled via `use_hard_neg_mixup`, generates hard negatives through interpolation (supports SVD-based and simple linear mixup)
