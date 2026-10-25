@@ -34,11 +34,3 @@ python case_study.py -d tsRNA-disease2 --disease "Breast Neoplasms" --top_k 10 2
 | `src/utils/binary_evaluator.py` | Binary classification metrics (AUC, AUPR, etc.) |
 | `src/utils/dataset.py` | Data loading (supports K-fold) |
 
-## Data Format
-
-Located in `data/<dataset>/`:
-- `<dataset>.inter`: Tab-separated (userID, itemID, x_label columns)
-- `text_feat.npy`, `image_feat.npy`: Pre-extracted features
-- `freedom_embeddings.pt`: Saved embeddings after FREEDOM training
-- `mm_adj_freedomdsp_*.pt`: Cached multimodal adjacency matrices (delete after modifying KNN parameters)
-
